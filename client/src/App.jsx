@@ -1,12 +1,14 @@
-
+import React from "react"
+import {BrowserRouter, Route, Routes} from "react-router-dom"
+import Test from "./components/test"
 function App() {
 
   return (
-    <>
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Test/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -1,13 +1,13 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
-const initialState ={
-    
-}
+const initialState ={}
 
 export const todoSlice = createSlice({
-    // name: 
-    // state:
-    // reducers:
+    // name: "todo",
+    // initialState,
+    // reducers: {
+
+    // }
 })
 
 // export const {} =util.actions

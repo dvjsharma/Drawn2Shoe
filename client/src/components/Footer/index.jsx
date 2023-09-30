@@ -8,11 +8,11 @@ const Footer = () => {
             <div className='flex items-center w-[20%] text-3xl flex-wrap my-3 max-lg:justify-center'>
                 Drawn2Shoe
             </div>
-            <div className='flex items-center justify-center w-[60%] text-base flex-wrap gap-4 my-3'>
+            <div className='flex items-center justify-center w-[60%] text-[15px] flex-wrap gap-4 my-3'>
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="/">Categories</NavLink>
-                <NavLink to="/">Customize</NavLink>
-                <NavLink to="/">Shop</NavLink>
+                <NavLink to="categories">Categories</NavLink>
+                <NavLink to="customize">Customize</NavLink>
+                <NavLink to="shop">Shop</NavLink>
             </div>
             <div className='flex items-center  w-[20%] gap-3 my-3 justify-end max-lg:justify-center'>
                 <Link to = "/">
@@ -31,15 +31,15 @@ const Footer = () => {
                 </Link>
             </div>
         </div>
-        <div className='flex items-center justify-center w-[80%] flex-wrap min-h-[3rem] max-lg:flex-col text-[#6e6d7a] text- base'>
+        <div className='flex items-center justify-center w-[80%] flex-wrap min-h-[3rem] max-lg:flex-col text-[#6e6d7a] text-[15px]'>
             <div className='flex w-[50%] my-3 flex-wrap max-lg:justify-center'>
             © 2023 Drawn2Shoe.
             </div>
             <div className='flex gap-3 w-[50%] flex-row-reverse my-3 flex-wrap max-lg:justify-center'>
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="/">Categories</NavLink>
-                <NavLink to="/">Customize</NavLink>
-                <NavLink to="/">Shop</NavLink>
+                <NavLink to="categories">Categories</NavLink>
+                <NavLink to="customize">Customize</NavLink>
+                <NavLink to="shop">Shop</NavLink>
             </div>
         </div>
     </div>

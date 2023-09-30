@@ -1,12 +1,13 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import logo from '../../assets/logo-final.png'
 
 const Footer = () => {
   return (
     <div className='flex items-center justify-center w-full flex-col'>
         <div className='flex items-center justify-center w-[80%] flex-wrap min-h-[6rem] max-lg:flex-col font-bold'>
-            <div className='flex items-center w-[20%] text-3xl flex-wrap my-3 max-lg:justify-center'>
-                Drawn2Shoe
+            <div className='flex items-center w-[20%] text-3xl flex-wrap my-3 max-lg:justify-center max-lg:w-full'>
+                <img src={logo} alt="" className='h-9 w-48' />
             </div>
             <div className='flex items-center justify-center w-[60%] text-[15px] flex-wrap gap-4 my-3'>
                 <NavLink to="/">Home</NavLink>

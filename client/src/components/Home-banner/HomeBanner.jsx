@@ -1,4 +1,5 @@
 import React from 'react'
+import banner from '../../assets/banner-hero.png'
 import { Link } from 'react-router-dom'
 
 const HomeBanner = () => {
@@ -33,8 +34,8 @@ const HomeBanner = () => {
             </div>
           </div>
         </div>
-        <div className="w-[50%] p-3 max-md:w-full flex justify-center">
-          <img src="https://fakeimg.pl/400x400" alt="" className='rounded-full'/>
+        <div className="w-[60%] p-3 max-md:w-full flex justify-center">
+        <img src={banner} alt="" />
         </div>
       </div>
     </div>

@@ -46,7 +46,7 @@ const Navbar = () => {
   return (
     <>
     <Menu right isOpen={toggled} styles={styles} onClose={()=>(setToggled(false))} >
-      <Link to="/" className='menu-item'>Home</Link>
+      <Link to="/" className='menu-item' onClick={()=>{setToggled(false)}}>Home</Link>
       <Link to="categories" className='menu-item' onClick={()=>{setToggled(false)}} >Categories</Link>
       <Link to="customize" className='menu-item' onClick={()=>{setToggled(false)}} >Customize</Link>
       <Link to="shop" className='menu-item' onClick={()=>{setToggled(false)}} >Shop</Link>

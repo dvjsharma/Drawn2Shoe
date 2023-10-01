@@ -56,27 +56,27 @@ const Navbar = () => {
       <div className="flex gap-4 w-[30%] justify-center items-center max-lg:hidden">
         <NavLink
           to="/"
-          className={({ isActive }) => (isActive ? "nav-active" : null)}
+          className={({ isActive }) => (isActive ? "underline underline-offset-8 " : null)}
         >
           
           Home
         </NavLink>
         <NavLink
           to="categories"
-          className={({ isActive }) => (isActive ? "nav-active" : null)}
+          className={({ isActive }) => (isActive ? "underline underline-offset-8 " : null)}
         >
           
           Categories
         </NavLink>
         <NavLink
           to="customize"
-          className={({ isActive }) => (isActive ? "nav-active" : null)}
+          className={({ isActive }) => (isActive ? "underline underline-offset-8 " : null)}
         >
           Customize
         </NavLink>
         <NavLink
           to="shop"
-          className={({ isActive }) => (isActive ? "nav-active" : null)}
+          className={({ isActive }) => (isActive ? "underline underline-offset-8 " : null)}
         >
           Shop
         </NavLink>

@@ -1,9 +1,11 @@
 import React from 'react'
+import Carousel from '../../components/carousel'
 
 const Home = () => {
   return (
-    <div>
-      <h1>inside home.</h1>
+    <div className='max-w-lg'>
+
+      <Carousel/>
     </div>
   )
 }

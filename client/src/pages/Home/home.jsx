@@ -1,12 +1,15 @@
 import React from 'react'
+import HomeBanner from '../../components/Home-banner/HomeBanner'
+import Home_retailers_comp from '../../components/Home-retailers'
 import Carousel from '../../components/carousel'
 
 const Home = () => {
   return (
-    <div className='max-w-lg'>
-
-      <Carousel/>
-    </div>
+    <>
+    <HomeBanner/>
+    <Home_retailers_comp/>
+    <Carousel/>
+  </>
   )
 }
 

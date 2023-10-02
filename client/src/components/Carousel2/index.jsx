@@ -1,5 +1,6 @@
 import React from 'react'
-
+import review1 from "../../assets/reviews/review_2.jpeg"
+import review2 from "../../assets/reviews/review_1.jpg"
 const Carousel2 = () => {
   return (
     <div className="flex w-full items-center justify-center">
@@ -16,7 +17,7 @@ const Carousel2 = () => {
               <div className="flex w-[20%] justify-start items-start">
                 <img
                   className=" rounded-[100%]"
-                  src="https://fakeimg.pl/100x100"
+                  src={review1}
                   alt=""
                 />
               </div>
@@ -73,11 +74,11 @@ const Carousel2 = () => {
                   <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                 </svg>
                 </div>
-                <div className="custom text-[#6ce6d78]">Andrew Garfield</div>
+                <div className="custom text-gray-500 text-[14px]" >Divyansh Bisht</div>
               </div>
             </div>
-            <div className="w-full h-[1.5px] bg-black my-3"></div>
-            <div className="text-[18px] text-black custom">
+            <div className="w-full h-[1.5px] bg-gray-400 my-3"></div>
+            <div className="text-[18px] text-gray-700 custom">
               I was surprised. The quality was much higher than I expected! The
               best feeling is having people coming up to me in the street and
               asking where I got them.
@@ -102,7 +103,7 @@ const Carousel2 = () => {
               <div className="flex w-[20%] justify-start items-start">
                 <img
                   className=" rounded-[100%]"
-                  src="https://fakeimg.pl/100x100"
+                  src={review2}
                   alt=""
                 />
               </div>
@@ -152,21 +153,19 @@ const Carousel2 = () => {
                   xmlns="http://www.w3.org/2000/svg"
                   width="22"
                   height="22"
-                  fill="#D9D9D9"
+                  fill="#FFB800"
                   class="bi bi-star-fill"
                   viewBox="0 0 16 16"
                 >
                   <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                 </svg>
                 </div>
-                <div className="custom text-[#6ce6d78]">Andrew Garfield</div>
+                <div className="custom text-gray-500 text-[14px]" >Divij Sharma</div>
               </div>
             </div>
-            <div className="w-full h-[1.5px] bg-black my-3"></div>
-            <div className="text-[18px] text-black custom">
-              I was surprised. The quality was much higher than I expected! The
-              best feeling is having people coming up to me in the street and
-              asking where I got them.
+            <div className="w-full h-[1.5px] bg-gray-400 my-3"></div>
+            <div className="text-[18px] text-gray-700 custom">
+            I was pleasantly surprised by the exceptional design quality! The best part is that I created the design myself, and they never fail to draw admiration wherever I go!
             </div>
           </div>
           {/* <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

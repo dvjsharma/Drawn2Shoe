@@ -4,7 +4,7 @@ import step2 from "../../assets/step_2.png"
 import step1 from "../../assets/step_3.png"
 
 const Guide = () => {
-  return (
+    return (
     <div className=' flex justify-center my-11'>
         <div className='w-[80%] flex flex-col gap-6'>
             <div className='text-[50px] text-center custom max-md:text-[30px]'>

@@ -1,11 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import step3 from "../../assets/step_1.png"
 import step2 from "../../assets/step_2.png"
 import step1 from "../../assets/step_3.png"
 
 const Guide = () => {
     return (
-    <div className=' flex justify-center my-11'>
+    <div className=' flex justify-center my-11 flex-col items-center'>
         <div className='w-[80%] flex flex-col gap-6'>
             <div className='text-[50px] text-center custom max-md:text-[30px]'>
                 Create Custom Shoes in 3 Easy Steps!
@@ -78,6 +79,13 @@ const Guide = () => {
                     </ul>
                 </div>
             </div>
+        </div>
+        <div className='mt-[40px] shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] rounded-2xl'>
+        <Link to="/customize">
+              <button className="inline-block bg-black text-white rounded-full border-2 border-black px-5 pb-[8px] pt-3 text-[25px] font-medium leading-normal transition duration-150 ease-in-out hover:bg-white hover:text-black focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:text-[14px] hover:border-black">
+                Customize Now!
+              </button>
+            </Link>
         </div>
     </div>
   )

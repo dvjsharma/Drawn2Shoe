@@ -11,6 +11,7 @@ import Layout_retailer from "./components/layout-retailer"
 import Designer_home from "./pages/Designers"
 import About from "./pages/About"
 import Retailer_home from "./pages/Retailer-home"
+import Product from "./pages/Product"
 function App() {
 
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="signup" element={<Signup/>}/>
           <Route path="designers" element={<Designer_home/>}/>
           <Route path="about" element={<About/>}/>
+          <Route path="product" element={<Product/>}/>
           <Route path="retailer" element={<Layout_retailer/>}>
             <Route index element={<Retailer_home/>}/>
           </Route>

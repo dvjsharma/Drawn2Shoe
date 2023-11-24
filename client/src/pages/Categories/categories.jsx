@@ -1,5 +1,5 @@
 import React from "react";
-import Productcard from "../../components/Product-card";
+import CategoryCard from "../../components/Category-card";
 
 const Categories = () => {
     // const [data, setData] = React.useState([]);
@@ -31,7 +31,7 @@ const Categories = () => {
             id: 2,
         }
     ];
-    const todisplay = data.map((item) => <Productcard {...item} />);
+    const todisplay = data.map((item) => <CategoryCard {...item} />);
     return (
         <div>
             <div className="text-center p-10">

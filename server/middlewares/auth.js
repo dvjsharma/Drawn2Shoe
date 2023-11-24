@@ -1,6 +1,5 @@
-import { User } from "../models/user.js";
 import jwt from "jsonwebtoken";
-
+import { con } from "../app.js";
 
 
 export const isAuthenticated = async (req, res, next) =>  {
@@ -14,6 +13,11 @@ export const isAuthenticated = async (req, res, next) =>  {
     }
 
     const decoded = jwt.verify(jjtoken, process.env.JWT_SECRET);
-    req.user= await User.findById(decoded._id);
-    next();
+    con.query(`SELECT * FROM mainuser WHERE email='${decoded.email}'`, (err, result) => {
+        if (err){
+            throw err;
+        }
+        req.user= result[0];
+        next();
+    });
 }

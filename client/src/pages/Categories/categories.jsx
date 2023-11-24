@@ -1,38 +1,50 @@
-import React from 'react'
-import Productcard from '../../components/Product-card'
+import React from "react";
+import Productcard from "../../components/Product-card";
 
 const Categories = () => {
-  return (
-    <div>
-      <div class="text-center p-10">
-    <h1 class="font-bold text-4xl mb-4">Categories</h1>
-    {/* <h1 class="text-3xl">Tailwind CSS</h1> */}
-</div>
+    // const [data, setData] = React.useState([]);
+    // React.useEffect(() => {
+    //     fetch("http://localhost:3000/api/products/categories")
+    //         .then((res) => res.json())
+    //         .then((data) => setData(data));
+    // }, []);
+    const data = [
+        {
+            shoeImage:
+                "https://images.unsplash.com/photo-1603145733190-59811e523c72?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            shoename: "Air Force One",
+            brand : "Nike",
+            id: 1,
+        },
+        {
+            shoeImage:
+                "https://images.unsplash.com/photo-1603145733190-59811e523c72?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            shoename: "Air Force One",
+            brand : "Nike",
+            id: 1,
+        },
+        {
+            shoeImage:
+                "https://images.unsplash.com/photo-1603145733190-59811e523c72?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            shoename: "Crocs",
+            brand : "Crocs",
+            id: 2,
+        }
+    ];
+    const todisplay = data.map((item) => <Productcard {...item} />);
+    return (
+        <div>
+            <div className="text-center p-10">
+                <h1 className="categories text-4xl mb-4 font-medium">Explore our amazing Categories!</h1>
+            </div>
+            <div
+                id="Projects"
+                className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
+            >
+                {todisplay}
+            </div>
+        </div>
+    );
+};
 
-{/* <!-- ✅ Grid Section - Starts Here 👇 --> */}
-<section id="Projects"
-    class="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5">
-
-    <Productcard/>
-    <Productcard/>
-    <Productcard/>
-    <Productcard/>
-    <Productcard/>
-    <Productcard/>
-    <Productcard/>
-
-</section>
-
-{/* <!-- 🛑 Grid Section - Ends Here --> */}
-
-
-{/* <!-- credit --> */}
-<div class="text-center py-10 px-10">
-    <h2 class="font-bold text-2xl md:text-4xl mb-4">Thanks to <a href="https://unsplash.com/@nixcreative"
-            class="underline font-black">Tyler Nix</a> for those AMAZING product images!</h2>
-</div>
-    </div>
-  )
-}
-
-export default Categories
+export default Categories;

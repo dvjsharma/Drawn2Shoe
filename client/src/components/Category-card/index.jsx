@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 
-const Productcard = ({ shoeImage, shoename, id, brand }) => {
+const Productcard = ({ shoeImage, shoename, id, brand, categoryId}) => {
     return (
         <div
             className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
-            key={id}
+            key={categoryId}
         >
-            <Link to="./../product">
+            <Link to={`./../shop?type=${categoryId}`}>
                 <img
                     src={shoeImage}
                     alt="Product"

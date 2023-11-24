@@ -1,9 +1,11 @@
+import mysql from "mysql";
+
 export const connectDB = () => {
     var con = mysql.createConnection({
         host: "localhost",
-        user: "yourusername",
-        password: "yourpassword",
-        database: "mydb"
+        user: "root",
+        password: "",
+        database: "drawn2shoe"
       });
       
       con.connect((err) => {

@@ -18,11 +18,11 @@ const Productcard = ({ shoeImage, shoeName, brand, pId, price }) => {
                     </p>
                     <div className="flex items-center">
                         <p className="text-lg font-semibold text-black cursor-auto my-3">
-                            {`₹${parseInt(price*0.8)}`}
+                            {`₹${parseInt(price*0.9 + price*0.2*0.9)}`}
                         </p>
                         <del>
                             <p className="text-sm text-gray-600 cursor-auto ml-2">
-                            {`₹${price}`}
+                            {`₹${price*1.2}`}
                             </p>
                         </del>
                         <div className="ml-auto">

@@ -84,6 +84,10 @@ const Cart = () => {
         }
         console.log(toDisplay);
     }, [cartitems])
+
+    if(!cartitems){
+        return <div>Cart is empty</div>
+    }
     return(
         <>
 <div className=" bg-gray-100 pt-20">

@@ -37,4 +37,17 @@ const getcategories = (req, res) => {
     })
 }
 
-export {getproducts, getcategories, getproductbyid};
+const createcustomproduct = (req, res) => {
+    const {description, image} = req.body;
+    con.query(`INSERT INTO design (description, image) VALUES ('${description}', '${image}') `, (err, result) => {
+        if (err){
+            throw err;
+        }
+        return res.status(200).json({
+            success: true,
+            message: "Custom design created"
+        });
+    })
+}
+
+export {getproducts, getcategories, getproductbyid, createcustomproduct};

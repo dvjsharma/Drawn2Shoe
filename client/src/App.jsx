@@ -12,6 +12,7 @@ import Designer_home from "./pages/Designers"
 import About from "./pages/About"
 import Retailer_home from "./pages/Retailer-home"
 import Product from "./pages/Product"
+import Cart from "./pages/Cart"
 function App() {
 
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="designers" element={<Designer_home/>}/>
           <Route path="about" element={<About/>}/>
           <Route path="product" element={<Product/>}/>
+          <Route path="cart" element={<Cart/>}/>
           <Route path="retailer" element={<Layout_retailer/>}>
             <Route index element={<Retailer_home/>}/>
           </Route>

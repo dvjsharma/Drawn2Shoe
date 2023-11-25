@@ -5,6 +5,7 @@ import userrouter from "./routes/user.js";
 import productrouter from "./routes/products.js";
 import cors from 'cors';
 import cookieParser from "cookie-parser";
+import cartrouter from './routes/cart.js';
 
 export const app = express();
 
@@ -24,3 +25,4 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/api/users", userrouter);
 app.use("/api/products", productrouter);
+app.use("/api/cart", cartrouter);

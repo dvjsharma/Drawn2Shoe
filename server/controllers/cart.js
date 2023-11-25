@@ -12,5 +12,19 @@ const getcart = (req, res) => {
     });
 }
 
+const addcart=(req, res) => {
+    const {pId, price, size} = req.body;
+    con.query(`INSERT INTO cart VALUES (${pId}, '${req.user["email"]}', ${size}, 1)`, (err, result) => {
+        if (err)
+        {
+            throw err;
+        }
+        return res.status(200).json({
+            success: true,
+            message: "Added to cart"
+        })
+    });
+}
 
-export {getcart};
+
+export {getcart, addcart};

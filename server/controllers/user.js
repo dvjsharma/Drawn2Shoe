@@ -65,13 +65,24 @@ const getMyProfile = (req, res) => {
 
 const registerdesigner = (req, res) => {
     const { description, portfoliolink } = req.body;
-    con.query(`INSERT INTO designer VALUES ('${req.user["email"]}', '${description}', '${portfoliolink}')`, (err, result) => {
+    con.query(`SELECT * FROM designer WHERE email='${req.user["email"]}'`, (err, result) => {
         if (err) {
             throw err;
         }
-        return res.status(200).json({
-            success: true,
-            message: "Registered Designer"
+        if (result.length != 0) {
+            return res.status(404).json({
+                success: false,
+                message: "Designer already exists."
+            });
+        }
+        con.query(`INSERT INTO designer VALUES ('${req.user["email"]}', '${description}', '${portfoliolink}')`, (err, result) => {
+            if (err) {
+                throw err;
+            }
+            return res.status(200).json({
+                success: true,
+                message: "Registered Designer"
+            });
         })
     })
 }

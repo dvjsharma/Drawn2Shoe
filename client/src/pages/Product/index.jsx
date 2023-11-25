@@ -25,11 +25,8 @@ const Product = () => {
         // console.log(data)
         try {
             const { data } = await axios.post(
-                "http://localhost:3000/api/users/cart/add",
+                "http://localhost:3000/api/cart/add",
                 {
-                    shoeImage,
-                    shoeName,
-                    brand,
                     pId,
                     price,
                     size: formData,

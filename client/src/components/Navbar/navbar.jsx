@@ -1,10 +1,27 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import {Divide, Divide as Hamburger} from 'hamburger-react'
 import {stack as Menu} from 'react-burger-menu'
 import logo from '../../assets/logo-final.png'
+import axios from 'axios'
 
 const Navbar = () => {
+  const [user, setUser] = useState();
+  useEffect( () => {
+    const checklogin = async () => {
+      const { data } = await axios.get(
+      "http://localhost:3000/api/users/me",
+      {
+          headers: {
+              "Content-Type": "application/json",
+          },
+          withCredentials: true,
+      }
+      );
+      setUser(data.user.name);
+  }
+  checklogin();
+  }, [])
   var styles = {
     bmBurgerButton: {
       display: 'none',
@@ -89,7 +106,7 @@ const Navbar = () => {
           <img src={logo} alt="" className='w-40'/>
         </Link>
       </div>
-      <div className="flex w-[30%] justify-center gap-4 max-lg:w-full max-lg:justify-end">
+      <div className={`flex w-[30%] justify-center gap-4 max-lg:w-full max-lg:justify-end ${user? 'hidden': ''}`}>
         <Link to="login"> <button
         className="inline-block rounded-full border-2 border-neutral-800 px-4 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-neutral-800 transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-black hover:text-white focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:hidden" 
       > 
@@ -100,6 +117,13 @@ const Navbar = () => {
       > 
         SignUp
       </button> </Link>
+      </div>
+      <div className={`flex w-[30%] text-base items-center justify-center gap-4 max-lg:w-full max-lg:justify-end ${!user? 'hidden': ''}`}>
+        Hi {user}
+        <Link to="cart">
+
+        <img src="https://icons.veryicon.com/png/o/miscellaneous/unicons/cart-38.png" className='w-8' alt="" />
+        </Link>
       </div>
     </nav>
     </>

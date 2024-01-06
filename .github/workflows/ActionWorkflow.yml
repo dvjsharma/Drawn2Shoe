@@ -46,25 +46,3 @@ jobs:
       with:
         name: vulRep-${{ github.run_id }}-${{ github.run_number }}.html
         path: ${{ github.workspace }}/vulRep.html
-    - name: Install Dependency
-      run: sudo apt-get install wkhtmltopdf
-    - name: Generate pdf
-      run: |
-        echo "<html><body><pre>$(cat ${{ github.workspace }}/sbom.json)</pre></body></html>" > ${{ github.workspace }}/sbom.html
-        wkhtmltopdf ${{ github.workspace }}/sbom.html ${{ github.workspace }}/sbom.pdf
-        echo "<html><body><pre>$(cat ${{ github.workspace }}/sbom.vdr.json)</pre></body></html>" > ${{ github.workspace }}/sbomv.html
-        wkhtmltopdf ${{ github.workspace }}/sbomv.html ${{ github.workspace }}/sbomv.pdf
-        cat ${{ github.workspace }}/vulRep.html
-        wkhtmltopdf ${{ github.workspace }}/vulRep.html ${{ github.workspace }}/vulRep.pdf
-    - name: Mail Reports
-      uses: dawidd6/action-send-mail@v3
-      with:
-          server_address: smtp.gmail.com
-          server_port: 587
-          username: ${{ secrets.GMAIL_USERNAME }}
-          password: ${{ secrets.GMAIL_PASSWORD }}
-          to: divijs75@gmail.com, divyanshbisht2005@gmail.com
-          from: akashsah2003@gmail.com
-          subject: "Latest security reports"
-          body: Please find the latest security reports
-          attachments: ${{ github.workspace }}/sbom.pdf,  ${{ github.workspace }}/sbomv.pdf, ${{ github.workspace }}/vulRep.pdf

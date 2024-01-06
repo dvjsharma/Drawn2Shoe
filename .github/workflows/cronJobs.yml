@@ -1,0 +1,68 @@
+# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
+name: Create SBOM
+
+on:
+  schedule:
+    - cron: '0 0 */7 * *'
+
+jobs:
+  create_sbom:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.11
+      uses: actions/setup-python@v3
+      with:
+        python-version: 3.11
+    - name: Install dependencies
+      run: |
+        sudo apt-get install jq
+        python -m pip install --upgrade pip
+        pip install owasp-depscan
+        pip install sbomgen
+    - name: Generate SBOM
+      run: |
+        sbomgen -p ${{ github.workspace }}/ -f json
+        # jq . ${{ github.workspace }}/sbom.json
+        depscan --bom ${{ github.workspace }}/sbom.json -o ${{ github.workspace }}/vulRep.html
+    - name: Upload SBOM
+      uses: actions/upload-artifact@v2
+      with:
+        name: sbom-${{ github.run_id }}-${{ github.run_number }}.json
+        path: ${{ github.workspace }}/sbom.json
+    - name: Upload vdr
+      uses: actions/upload-artifact@v2
+      with:
+        name: vulRep-${{ github.run_id }}-${{ github.run_number }}.vdr.json
+        path: ${{ github.workspace }}/sbom.vdr.json
+    - name: Upload html
+      uses: actions/upload-artifact@v2
+      with:
+        name: vulRep-${{ github.run_id }}-${{ github.run_number }}.html
+        path: ${{ github.workspace }}/vulRep.html
+    - name: Install Dependency
+      run: sudo apt-get install wkhtmltopdf
+    - name: Generate pdf
+      run: |
+        echo "<html><body><pre>$(cat ${{ github.workspace }}/sbom.json)</pre></body></html>" > ${{ github.workspace }}/sbom.html
+        wkhtmltopdf ${{ github.workspace }}/sbom.html ${{ github.workspace }}/sbom.pdf
+        echo "<html><body><pre>$(cat ${{ github.workspace }}/sbom.vdr.json)</pre></body></html>" > ${{ github.workspace }}/sbomv.html
+        wkhtmltopdf ${{ github.workspace }}/sbomv.html ${{ github.workspace }}/sbomv.pdf
+        cat ${{ github.workspace }}/vulRep.html
+        wkhtmltopdf ${{ github.workspace }}/vulRep.html ${{ github.workspace }}/vulRep.pdf
+    - name: Mail Reports
+      uses: dawidd6/action-send-mail@v3
+      with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.GMAIL_USERNAME }}
+          password: ${{ secrets.GMAIL_PASSWORD }}
+          to: divijs75@gmail.com, divyanshbisht2005@gmail.com
+          from: akashsah2003@gmail.com
+          subject: "Latest security reports"
+          body: Please find the latest security reports
+          attachments: ${{ github.workspace }}/sbom.pdf,  ${{ github.workspace }}/sbomv.pdf, ${{ github.workspace }}/vulRep.pdf

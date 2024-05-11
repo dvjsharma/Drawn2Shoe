@@ -34,8 +34,7 @@ Node.js and sql installed on your machine
   cd server
   npm install
 ```
-4. Create a file named config.env in data folder of server and add PORT=3000
- 
+4. Create a file named `config.env` in root folder and simply copy content of `.env.example` 
 
 We are almost done, Now just start the development server.
 
@@ -48,6 +47,7 @@ We are almost done, Now just start the development server.
 
 6. For Backend - Open another terminal in folder, Also make sure xampp is running in background.
 
+Find and import the database from [here](https://drive.google.com/file/d/1qShqZpEGcdhVmZ7zzAar-tBwhPFomNWW/view?usp=sharing). Make sure to name it as drawn2shoe. 
 ```bash
   cd server
   node app.js

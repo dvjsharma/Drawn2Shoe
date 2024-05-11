@@ -10,7 +10,6 @@ const Carousel = () => {
   const carousel = useRef();
   const [scrolll, setScrolll] = useState(0);
   useEffect(()=>{
-    console.log(carousel.current.scrollWidth);
   }, [scrolll])
   return (
     <div ref={carousel} className='relative overflow-x-hidden flex w-[100vw] h-[300px]  items-center scroll-auto transition-transform: flex-row my-8' >

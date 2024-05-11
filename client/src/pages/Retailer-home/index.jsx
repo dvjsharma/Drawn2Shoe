@@ -22,7 +22,6 @@ const Retailer_home = () => {
     }
     async function handleSubmit(event) {
         event.preventDefault();
-        console.log(formData);
         try {
             const { data } = await axios.post(
                 "http://localhost:3000/api/users/retailer",

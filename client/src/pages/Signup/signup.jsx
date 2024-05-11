@@ -16,7 +16,6 @@ const Signup = () => {
   const[registered, setRegistered] = useState(false);
   const registerf = async (e) => {
     e.preventDefault();
-    // console.log(name.length>0 && email.length>0 && passwd.length>0 && street.length>0 && city.length>0);
     if (!(name.length>0 && email.length>0 && passwd.length>0 && street.length>0 && city.length>0 && state.length>0 && pincode>0))
     {
       toast.error("All fields are necessary");

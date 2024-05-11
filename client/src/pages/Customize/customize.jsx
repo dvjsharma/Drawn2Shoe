@@ -19,9 +19,7 @@ const Customize = () => {
     }
     async function handleSubmit(event) {
         event.preventDefault();
-        console.log(formData);
         try {
-            console.log(formData);
             const { data } = await axios.post(
                 "http://localhost:3000/api/products/custom",
                 {

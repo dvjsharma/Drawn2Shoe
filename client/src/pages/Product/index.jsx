@@ -13,16 +13,6 @@ const Product = () => {
     }
     async function handleSubmit(event) {
         event.preventDefault();
-        // console.log(formData);
-        // const data = {
-        //     shoeImage,
-        //     shoeName,
-        //     brand,
-        //     pId,
-        //     price,
-        //     size: formData,
-        // };
-        // console.log(data)
         try {
             const { data } = await axios.post(
                 "http://localhost:3000/api/cart/add",

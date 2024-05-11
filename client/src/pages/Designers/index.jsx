@@ -19,7 +19,6 @@ const Designer_home = () => {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            console.log(formData);
             const { data } = await axios.post(
                 "http://localhost:3000/api/users/designer",
                 {
@@ -37,7 +36,6 @@ const Designer_home = () => {
             window.location.href = "/";
         } catch (error) {
             toast.error(error.response.data.message);
-            // console.error(error);
         }
 
     }
@@ -58,17 +56,11 @@ const Designer_home = () => {
                                     className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                                     type="text"
                                     placeholder="First Name"
-                                    // onChange={handleChange}
-                                    // name="firstName"
-                                    // value={formData.firstName}
                                 />
                                 <input
                                     className="w-full bg-gray-100 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                                     type="text"
                                     placeholder="Last Name"
-                                    // onChange={handleChange}
-                                    // name="lastName"
-                                    // value={formData.lastName}
                                 />
                             </div>
                             <div className="my-4 gap-3 flex flex-col">
@@ -131,10 +123,10 @@ const Designer_home = () => {
                                 <div className="flex flex-col">
                                     <h2 className="text-2xl">Call Us</h2>
                                     <p className="text-gray-400">
-                                        Tel: 90799-15245
+                                        Tel: xxxxx-xxxxx
                                     </p>
                                     <p className="text-gray-400">
-                                        Fax: 88698-87160
+                                        Fax: xxxxx-xxxxx
                                     </p>
                                 </div>
                             </div>

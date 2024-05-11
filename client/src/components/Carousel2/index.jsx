@@ -84,10 +84,6 @@ const Carousel2 = () => {
               asking where I got them.
             </div>
           </div>
-          {/* <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide4" className="btn btn-circle">❮</a> 
-      <a href="#slide2" className="btn btn-circle">❯</a>
-    </div> */}
         </div>
       </div>
       <div
@@ -168,10 +164,6 @@ const Carousel2 = () => {
             I was pleasantly surprised by the exceptional design quality! The best part is that I created the design myself, and they never fail to draw admiration wherever I go!
             </div>
           </div>
-          {/* <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-      <a href="#slide4" className="btn btn-circle">❮</a> 
-      <a href="#slide2" className="btn btn-circle">❯</a>
-    </div> */}
         </div>
       </div>
     </div>

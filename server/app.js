@@ -11,16 +11,17 @@ export const app = express();
 
 
 config({
-    path: "./data/config.env",
+    path: "config.env",
 });
 
 export const con = connectDB();
 
 app.use(cors({
-origin: true,
-methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-credentials: true,
+    origin: true,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
 }));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/users", userrouter);

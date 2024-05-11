@@ -76,7 +76,6 @@ const Login = () => {
                                     name="password"
                                     onChange={(e) => {
                                         setPassword(e.target.value);
-                                        console.log(password);
                                     }}
                                 />
                                 <div className="absolute left-0 inset-y-0 flex items-center">

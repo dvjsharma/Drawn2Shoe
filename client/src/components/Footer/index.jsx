@@ -87,7 +87,6 @@ const Footer = () => {
                     © 2023 Drawn2Shoe.
                 </div>
                 <div className="flex gap-3 w-[50%] flex-row-reverse my-3 flex-wrap max-lg:justify-center">
-                    {/*  Add address instead */}
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="categories">Categories</NavLink>
                     <NavLink to="customize">Customize</NavLink>

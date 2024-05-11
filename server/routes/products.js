@@ -1,6 +1,5 @@
 import express from "express";
 import { getproducts, getcategories, getproductbyid, createcustomproduct } from "../controllers/products.js";
-import { isAuthenticated } from "../middlewares/auth.js";
 
 const router = express.Router();
 

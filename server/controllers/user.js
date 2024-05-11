@@ -14,7 +14,6 @@ const signup = async (req, res) => {
                 message: "User already exists."
             });
         }
-        // console.log(req.body);
         const hpasswd = await bcrypt.hash(passwd, 10);
         con.query(`INSERT INTO mainuser VALUES ('${name}', '${email}', '${ppic}', '${hpasswd}', '${street}', '${city}', '${state}', ${pincode})`, (err, result) => {
             if (err) {
@@ -56,7 +55,6 @@ const login = async (req, res) => {
 }
 
 const getMyProfile = (req, res) => {
-    console.log(req.user);
     res.status(200).json({
         message: "Success",
         user: req.user,

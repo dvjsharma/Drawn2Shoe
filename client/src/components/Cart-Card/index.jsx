@@ -1,5 +1,4 @@
 const Cartcard = (props) => {
-    console.log(props)
   return (
     <>
       <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start" id={props.productId}>

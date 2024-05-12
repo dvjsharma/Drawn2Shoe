@@ -9,8 +9,10 @@ const Login = () => {
   const [authenticated, setAuthenticated] = useState(false);
   const loginf = async (e, email, password) => {
     e.preventDefault();
-    if (!email || !password)
-      return toast.error("Please fill out all the fields");
+    if (!email && !password)
+      return toast.error("Please enter email and password");
+    if (!email) return toast.error("Please enter email");
+    if (!password) return toast.error("Please enter password");
     try {
       const { data } = await axios.post(
         "http://localhost:3000/api/users/login",

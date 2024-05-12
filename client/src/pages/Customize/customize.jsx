@@ -19,8 +19,10 @@ const Customize = () => {
   }
   async function handleSubmit(event) {
     event.preventDefault();
-    if (!formData.desc || !formData.link)
+    if (!formData.desc && !formData.link)
       return toast.error("Please fill out all the fields");
+    if (!formData.desc) return toast.error("Please enter a description");
+    if (!formData.link) return toast.error("Please enter a link");
     try {
       const { data } = await axios.post(
         "http://localhost:3000/api/products/custom",

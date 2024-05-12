@@ -2,6 +2,8 @@ import { React, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import {useDispatch, useSelector} from "react-redux";
+import { logIn } from "../../redux/auth-slice";
 
 const Login = () => {
   const [email, setEmail] = useState("");

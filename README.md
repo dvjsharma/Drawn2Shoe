@@ -28,8 +28,8 @@ Before you proceed, ensure that you have the following prerequisites installed o
 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/your-username/drawn2shoe.git
-cd drawn2shoe
+  git clone https://github.com/dvjsharma/Drawn2Shoe.git
+  cd Drawn2Shoe
 ```
 
 2. **Install Client Dependencies**

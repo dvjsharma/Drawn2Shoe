@@ -1,9 +1,9 @@
 ```markdown
-# Draw2Shoe
+# Drawn2Shoe
 
 ## Introduction
 
-This platform offers a comprehensive shoe shopping experience. Whether you're browsing our wide selection or designing your own custom footwear using our user-friendly tools, Draw2Shoe is here to provide an unparalleled experience.
+This platform offers a comprehensive shoe shopping experience. Whether you're browsing our wide selection or designing your own custom footwear using our user-friendly tools, Drawn2Shoe is here to provide an unparalleled experience.
 
 ## Table of Contents
 

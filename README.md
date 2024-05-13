@@ -1,8 +1,8 @@
-# Draw2Shoe
+# Drawn2Shoe
 
 ## Introduction
 
-Draw2Shoe is an innovative online tool that empowers users to customize and purchase their own shoes. Built using a blend of cutting-edge technologies such as ReactJS for the frontend and Node.js for the backend, Draw2Shoe offers a seamless user experience where creativity knows no bounds. With intuitive interface design optimized for various devices, users can dive into a world of limitless customization possibilities.
+Drawn2Shoe is an innovative online tool that empowers users to customize and purchase their own shoes. Built using a blend of cutting-edge technologies such as ReactJS for the frontend and Node.js for the backend, Draw2Shoe offers a seamless user experience where creativity knows no bounds. With intuitive interface design optimized for various devices, users can dive into a world of limitless customization possibilities.
 
 ## Features
 
@@ -28,8 +28,8 @@ Before you proceed, ensure that you have the following prerequisites installed o
 1. **Clone the Repository**
 
 ```bash
-git clone https://github.com/your-username/draw2shoe.git
-cd draw2shoe
+git clone https://github.com/your-username/drawn2shoe.git
+cd drawn2shoe
 ```
 
 2. **Install Client Dependencies**
@@ -99,4 +99,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Message From the Project Authors
 
-Thank you for visiting Draw2Shoe! We're thrilled to provide you with a platform where you can unleash your creativity and design your dream shoes. Feel free to explore the code, contribute to the project, and share your feedback. Together, let's step into a world of personalized footwear!
+Thank you for visiting Drawn2Shoe! We're thrilled to provide you with a platform where you can unleash your creativity and design your dream shoes. Feel free to explore the code, contribute to the project, and share your feedback. Together, let's step into a world of personalized footwear!

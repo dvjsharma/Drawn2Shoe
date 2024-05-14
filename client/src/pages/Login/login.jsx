@@ -6,34 +6,36 @@ import {useDispatch, useSelector} from "react-redux";
 import { logIn } from "../../redux/auth-slice";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [authenticated, setAuthenticated] = useState(false);
-  const loginf = async (e, email, password) => {
-    e.preventDefault();
-    if (!email && !password)
-      return toast.error("Please enter email and password");
-    if (!email) return toast.error("Please enter email");
-    if (!password) return toast.error("Please enter password");
-    try {
-      const { data } = await axios.post(
-        "http://localhost:3000/api/users/login",
-        {
-          email,
-          passwd: password,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          withCredentials: true,
-        }
-      );
-      toast(data.message);
-      setAuthenticated(true);
-    } catch (error) {
-      toast.error(error.response.data.message);
-      // console.error(error);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [authenticated, setAuthenticated] = useState(false);
+
+    const logged = useSelector((state)=>state.authReducer.value.isAuth)
+
+    const dispatch = useDispatch();
+
+    const loginf = async (e, email, password) => {
+        e.preventDefault();
+        try {
+            const { data } = await axios.post(
+                "http://localhost:3000/api/users/login",
+                {
+                    email,
+                    passwd: password,
+                },
+                {
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    withCredentials: true,
+                }
+            );
+            dispatch(logIn({email:email}));
+            toast(data.message);
+            setAuthenticated(true);
+        } catch (error) {
+            toast.error(error.response.data.message);
+            // console.error(error);
     }
   };
   if (authenticated) {

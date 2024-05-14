@@ -22,6 +22,7 @@ export const auth = createSlice({
                     email:action.payload.email
                 }
             }
+
         },
         setUsername:(state,action) => {
             return {

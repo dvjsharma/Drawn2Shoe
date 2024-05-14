@@ -1,8 +1,10 @@
 <div align="center">
 
-# Drawn2Shoe
+# Drawn2Shoe: Buy Customized Shoes Online!
 
-<i>Drawn2Shoe is an online tool built using ReactJS and Node.js . It allows users to buy shoes and customize their shoes . The intuitive interface design make it easy to use across various devices.</i>
+<div align="center"><img src="./client/src/assets/banner-hero.png" width="auto" height="200px"/></div>
+
+<i>Drawn2Shoe is a user-friendly e-commerce platform, developed using ReactJS and Node.js. It offers customers the ability to purchase and personalize their shoes. The platform's intuitive interface ensures seamless navigation and usability across a variety of devices.</i>
 
 </div>
 
@@ -29,7 +31,7 @@
 </table>
 </div>
 
-<div align="center"> 
+<div align="center">
 
 ## 💻 Tech Stack
 
@@ -45,6 +47,7 @@
 ## Getting Started
 
 ### Prerequisites
+
 Ensure that `Node.js` and `MySQL` are installed on your machine.
 
 ### Installation
@@ -72,30 +75,44 @@ Ensure that `Node.js` and `MySQL` are installed on your machine.
 
 4. **Create a configuration file:**
 
-    Create a file named `config.env` in the root folder and simply copy the content of `.env.example` into it.
+    Create a file named `config.env` in the server folder and simply copy the content of `.env.example` into it.
 
-    We are almost done, now just start the development server.
+5. **Setting up the Database:**
 
-5. **For the Frontend:**
+    Open XAMPP (or any other SQL Db service) and start the Apache and MySQL services. Find and import the database from [here](https://drive.google.com/file/d/1qShqZpEGcdhVmZ7zzAar-tBwhPFomNWW/view?usp=sharing). Make sure to name it as `drawn2shoe`.
+
+    <i>NOTE: if you have custom configuration for XAMPP, don't forget to change Db config in `server/data/database.js`</i>
+
+6. **Running the Frontend:**
 
     ```bash
     cd ../client
     npm run dev
     ```
 
-6. **For the Backend:**
+7. **Running the Backend:**
 
-    Open another terminal in the folder, and make sure XAMPP is running in the background.
-
-    Find and import the database from [here](https://drive.google.com/file/d/1qShqZpEGcdhVmZ7zzAar-tBwhPFomNWW/view?usp=sharing). Make sure to name it as `drawn2shoe`.
+    Open another terminal in the folder, and make sure XAMPP (or any other SQL Db service) is running in the background.
 
     ```bash
     cd ../server
-    node app.js
+    node server.js
     ```
 
 After completing these steps, you should have the Drawn2Shoe application up and running on your local machine.
 
+## Contributing
+
+We welcome contributions to Drawn2Shoe! Please refer to our [Contributing Guidelines](CONTRIBUTING.md) for detailed information on how you can get involved.
+
+## Maintainers
+
+-   [**Divij Sharma**](https://github.com/dvjsharma) 
+-   [**Shashank Shekhar**](https://github.com/ShashankShekhar07) 
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Message From PA
 
@@ -106,7 +123,6 @@ We're glad you're here and excited for you to explore our project. Whether you'r
 Feel free to dive in, get involved, and make Drawn2Shoe even better!
 
 Happy coding!
-
 
 <div>
  

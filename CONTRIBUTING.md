@@ -24,7 +24,7 @@ in case you are stuck:
 
 <br>
 
-## **Issue Report Process 📌**
+## **Issue Report Process**
 
 1. Go to the project's issues.
 2. Give proper description for the issues.
@@ -32,16 +32,120 @@ in case you are stuck:
 4. Wait for till someone is looking into it !.
 5. Start working on issue only after you got assigned that issue 🚀.
 
-<br>
+## Git Commit
 
-## **Pull Request Process 🚀**
+The cardinal rule for creating good commits is to ensure there is only one
+"logical change" per commit. Why is this an important rule?
 
-1. Ensure that you have self reviewed your code 😀
-2. Make sure you have added the proper description for the functionality of the code
-3. I have commented my code, particularly in hard-to-understand areas.
-4. Add screenshot it help in review.
-5. Submit your PR by giving the necesarry information in PR template and hang tight we will review it really soon 🚀
+- The smaller the amount of code being changed, the quicker & easier it is to
+  review & identify potential flaws.
 
-<br>
+- If a change is found to be flawed later, it may be necessary to revert the
+  broken commit. This is much easier to do if there are no other unrelated
+  code changes entangled with the original commit.
 
+- When troubleshooting problems using Git's bisect capability, small well
+  -defined changes will aid in isolating exactly where the code problem was
+  introduced.
+
+- When browsing history using Git annotate/blame, small well-defined changes
+  also aid in isolating exactly where & why a piece of code came from.
+
+Things to avoid when creating commits
+
+- Mixing whitespace changes with functional code changes.
+- Mixing two unrelated functional changes.
+- Sending large new features in a single giant commit.
+
+## Git Commit Conventions
+
+We use git commit as per [Conventional Changelog](https://github.com/ajoslin/conventional-changelog):
+
+```none
+<type>(<scope>): <subject>
+```
+
+Example:
+
+```none
+feat(api): added login endpoint
+```
+
+Allowed types:
+
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation only changes
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, newline, line endings, etc)
+- **refactor**: A code change that neither fixes a bug or adds a feature
+- **perf**: A code change that improves performance
+- **test**: Adding missing tests
+- **chore**: Changes to the build process or auxiliary tools and libraries such as documentation generation
+
+## **Pull Request Process**
+
+Pull requests with patches, improvements, new features are a great help.
+Please keep them clean from unwanted commits.
+
+Follow the steps to get your work included in the project.
+
+1. [Fork](https://help.github.com/fork-a-repo/) the project, clone your fork,
+   and add the Drawn2Shoe remote:
+
+   ```bash
+   # Clone your fork of the repo into the current directory
+   git clone https://github.com/<your-username>/Drawn2Shoe.git
+   # Navigate to the cloned directory
+   cd Drawn2Shoe
+   # Assign the original repo to a remote called "upstream"
+   git remote add upstream https://github.com/dvjsharma/Drawn2Shoe.git
+   ```
+
+2. Get the latest changes from upstream:
+
+   ```bash
+   git checkout master
+   git pull upstream master
+   ```
+
+3. Create a new branch from the main master branch to contain your changes.
+   Best way is to call is to follow the type described in **Git Commit Conventions**
+   stated above: `<githubId>/#<issueNr>/<description/scope/topic>`
+
+   ```bash
+   git checkout -b <topic-branch-name>
+   ```
+
+   Example:
+
+   ```bash
+   git checkout -b john/138/buckets-undefined-index
+   ```
+
+   Or
+
+   ```bash
+   git checkout -b john/fix/138
+   ```
+
+4) It's coding time!
+
+   Commit your changes in logical chunks. Please adhere to **Git Commit Conventions** or your code is unlikely to be merged into the main project.
+   Use Git's [interactive rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)
+   feature to tidy up your commits before making them public.
+
+5) Locally rebase the upstream master branch into your topic branch:
+
+   ```bash
+   git pull --rebase upstream master
+   ```
+
+6) Push your topic branch up to your fork:
+
+   ```bash
+   git push origin <topic-branch-name>
+   ```
+
+7) [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
+   with a clear title and description against the `master` branch.
 # **Thank you for contributing💗** 

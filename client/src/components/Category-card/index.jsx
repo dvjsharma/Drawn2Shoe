@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Productcard = ({ shoeImage, shoename, id, brand, categoryId}) => {
+const Productcard = ({ shoeImage, shoename, id, brand, categoryId }) => {
     return (
         <div
             className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
@@ -21,8 +21,7 @@ const Productcard = ({ shoeImage, shoename, id, brand, categoryId}) => {
                     </p>
                 </div>
                 <div className="px-2 py-1 w-72 flex">
-                    <div className="flex items-center">
-                    </div>
+                    <div className="flex items-center"></div>
                 </div>
             </Link>
         </div>

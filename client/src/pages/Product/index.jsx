@@ -103,35 +103,40 @@ const Product = () => {
                         </span>
                         <form onSubmit={handleSubmit}>
                             <div className="flex items-center mt-2 mb-5">
-                                <button type="button"
+                                <button
+                                    type="button"
                                     className="bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600"
                                     name="size"
                                     onClick={handleChange}
                                 >
                                     7
                                 </button>
-                                <button type="button"
+                                <button
+                                    type="button"
                                     className="bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600 "
                                     name="size"
                                     onClick={handleChange}
                                 >
                                     8
                                 </button>
-                                <button type="button"
+                                <button
+                                    type="button"
                                     className="bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600"
                                     name="size"
                                     onClick={handleChange}
                                 >
                                     9
                                 </button>
-                                <button type="button"
+                                <button
+                                    type="button"
                                     className="bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600"
                                     name="size"
                                     onClick={handleChange}
                                 >
                                     10
                                 </button>
-                                <button type="button"
+                                <button
+                                    type="button"
                                     className="bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600"
                                     name="size"
                                     onClick={handleChange}

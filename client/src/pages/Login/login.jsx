@@ -2,11 +2,14 @@ import { React, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import {useDispatch} from "react-redux";
+import { logIn } from "../../redux/auth-slice";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [authenticated, setAuthenticated] = useState(false);
+    const dispatch = useDispatch();
     const loginf = async (e, email, password) => {
         e.preventDefault();
         if (!email && !password)
@@ -27,6 +30,7 @@ const Login = () => {
                     withCredentials: true,
                 }
             );
+            dispatch(logIn({email:email}));
             toast(data.message);
             setAuthenticated(true);
         } catch (error) {

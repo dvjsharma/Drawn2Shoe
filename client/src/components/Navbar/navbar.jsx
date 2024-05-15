@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink,useNavigate } from "react-router-dom";
 import { Divide, Divide as Hamburger } from "hamburger-react";
 import { stack as Menu } from "react-burger-menu";
 import logo from "../../assets/logo-final.png";
@@ -8,10 +8,12 @@ import {useDispatch, useSelector} from "react-redux";
 import { logOut, setUsername } from "../../redux/auth-slice";
 
 const Navbar = () => {
+
     const [user, setUser] = useState();
     const dispatch = useDispatch();
     const logged = useSelector((state)=>state.auth.value.isAuth);
     const username = useSelector((state)=>state.auth.value.username);
+
     useEffect(() => {
         const checklogin = async () => {
             try {

@@ -12,20 +12,24 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const logged = useSelector((state)=>state.auth.value.isAuth);
     const username = useSelector((state)=>state.auth.value.username);
-    console.log(logged)
     useEffect(() => {
         const checklogin = async () => {
-            const { data } = await axios.get(
-                "http://localhost:3000/api/users/me",
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    withCredentials: true,
+            try {
+                const { data } = await axios.get(
+                    "http://localhost:3000/api/users/me",
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        withCredentials: true,
+                    }
+                );
+                dispatch(setUsername({username:data.user.name}));
+            } catch (e) {
+                if(e.response.status !== 200){
+                    dispatch(logOut());
                 }
-            );
-            dispatch(setUsername({username:data.user.name}));
-            setUser(data.user.name);
+            }
         };
         if(logged){
             checklogin();

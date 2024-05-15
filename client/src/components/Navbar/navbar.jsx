@@ -8,10 +8,11 @@ import {useDispatch, useSelector} from "react-redux";
 import { logOut, setUsername } from "../../redux/auth-slice";
 
 const Navbar = () => {
+
+    const [user, setUser] = useState();
     const dispatch = useDispatch();
-    const logged = useSelector((state)=>state.authReducer.value.isAuth);
-    const username = useSelector((state)=>state.authReducer.value.username);
-    const navigate = useNavigate();
+    const logged = useSelector((state)=>state.auth.value.isAuth);
+    const username = useSelector((state)=>state.auth.value.username);
 
     useEffect(() => {
         const checklogin = async () => {
@@ -36,7 +37,6 @@ const Navbar = () => {
             checklogin();
         }
     }, [logged]);
-
     var styles = {
         bmBurgerButton: {
             display: "none",
@@ -195,7 +195,8 @@ const Navbar = () => {
                             </Link>
                         </div>
                         )
-                }{
+                }
+                {
                     logged && (
                         <div
                             className="flex w-[30%] text-base items-center justify-center gap-4 max-lg:w-full max-lg:justify-end "
@@ -221,7 +222,6 @@ const Navbar = () => {
                         </div>
                     )
                 }
-    
             </nav>
         </>
     );

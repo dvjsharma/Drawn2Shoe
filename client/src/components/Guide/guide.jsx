@@ -56,9 +56,9 @@ const Guide = () => {
                     </div>
                 </div>
             </div>
-            <div className="mt-[40px] shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] rounded-2xl">
+            <div className="mt-[40px] shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] rounded-full">
                 <Link to="/customize">
-                    <button className="inline-block bg-black text-white rounded-full border-2 border-black px-5 pb-[8px] pt-3 text-[25px] font-medium leading-normal transition duration-150 ease-in-out hover:bg-white hover:text-black focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:text-[14px] hover:border-black">
+                    <button className="inline-block bg-black text-white rounded-full border-2 border-black px-5 py-3 text-[25px] font-medium leading-normal transition duration-150 ease-in-out hover:bg-white hover:text-black focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:text-[14px] hover:border-black">
                         Customize Now!
                     </button>
                 </Link>

@@ -4,9 +4,21 @@ import { Divide, Divide as Hamburger } from "hamburger-react";
 import { stack as Menu } from "react-burger-menu";
 import logo from "../../assets/logo-final.png";
 import axios from "axios";
+import { MdLightMode } from "react-icons/md";
+import { MdDarkMode } from "react-icons/md";
+import logowhite from '../../assets/logowhite.png'
+import logoblack from '../../assets/logoblack.png'
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTheme, setTheme } from '../../redux/actions/themeActions';
 
 const Navbar = () => {
     const [user, setUser] = useState();
+    
+    // For Dark Mode
+    const theme = useSelector((state) => state.theme.theme);
+    const dispatch = useDispatch();
+    // For Dark Mode
+
     useEffect(() => {
         const checklogin = async () => {
             const { data } = await axios.get(
@@ -22,6 +34,25 @@ const Navbar = () => {
         };
         checklogin();
     }, []);
+
+    // For Dark Mode using Redux
+    useEffect(() => {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            dispatch(setTheme('dark'));
+        } else {
+            dispatch(setTheme('light'));
+        }
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [theme]);
+    // For Dark Mode using Redux
+
     var styles = {
         bmBurgerButton: {
             display: "none",
@@ -60,6 +91,7 @@ const Navbar = () => {
         },
     };
     const [toggled, setToggled] = useState(false);
+
     return (
         <>
             <Menu
@@ -114,7 +146,7 @@ const Navbar = () => {
                     Login
                 </Link>
             </Menu>
-            <nav className="flex items-center py-4 px-2 text-sm">
+            <nav className="flex items-center py-4 px-2 text-sm   dark:text-white">
                 <div className="flex gap-4 w-[30%] justify-center items-center max-lg:hidden">
                     <NavLink
                         to="/"
@@ -158,7 +190,7 @@ const Navbar = () => {
                         />
                     </div>
                     <Link to="/" className="font-bold text-[25px]">
-                        <img src={logo} alt="" className="w-40" />
+                        <img src={theme === "dark" ? logowhite : logoblack} alt="" className="w-40" /> 
                     </Link>
                 </div>
                 <div
@@ -166,21 +198,24 @@ const Navbar = () => {
                         user ? "hidden" : ""
                     }`}
                 >
+                    <div onClick={() => dispatch(toggleTheme())} className="text-2xl border rounded-full border-lg border-black dark:border dark:border-lg dark:rounded-full dark:border-yellow-500 p-1 cursor-pointer hover:scale-110 transition-all dark:text-yellow-400 text-center self-center">
+                        {theme === "dark" ? <MdLightMode /> : <MdDarkMode />}
+                    </div>
                     <Link to="login">
                         {" "}
-                        <button className="inline-block rounded-full border-2 border-neutral-800 px-4 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-neutral-800 transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-black hover:text-white focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:hidden">
+                        <button className="inline-block rounded-full border-2 border-neutral-800 px-4 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-neutral-800 transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-black hover:text-white focus:border-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:hidden dark:border-white dark:text-white dark:hover:bg-gray-100 dark:hover:text-black">
                             Login
                         </button>{" "}
                     </Link>
                     <Link to="signup">
                         {" "}
-                        <button className="inline-block bg-black  rounded-full border-2 border-neutral-800 px-6 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-white hover:text-black focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 ">
+                        <button className="inline-block bg-black  rounded-full border-2 border-neutral-800 px-6 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-white hover:text-black focus:border-neutral-800 focus:text-white focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 dark:border-white dark:bg-gray-100 dark:text-black dark:hover:text-white dark:hover:bg-black">
                             SignUp
                         </button>{" "}
                     </Link>
                 </div>
                 <div
-                    className={`flex w-[30%] text-base items-center justify-center gap-4 max-lg:w-full max-lg:justify-end ${
+                    className={`flex w-[30%] text-base items-center justify-center gap-4 max-lg:w-full max-lg:justify-end dark:text-white ${
                         !user ? "hidden" : ""
                     }`}
                 >

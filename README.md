@@ -1,6 +1,6 @@
 <div align="center">
 
-# Drawn2Shoe: Buy Customized Shoes Online!
+# Drawn2Shoe: Buy Customized Shoes Online!👟🎨
 
 <div align="center"><img src="./client/src/assets/banner-hero.png" width="auto" height="200px"/></div>
 
@@ -33,7 +33,7 @@
 
 <div align="center">
 
-## 💻 Tech Stack
+## 💻Tech Stack
 
 ![React](https://img.shields.io/badge/React-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Redux](https://img.shields.io/badge/Redux-%23764ABC?style=for-the-badge&logo=redux&logoColor=white)
@@ -44,7 +44,17 @@
 
 </div>
 
-## Getting Started
+## ✨Features
+
+ - Custom Shoe Design: Personalize your shoes with a variety of colors, patterns, and designs.
+ - Responsive Design: Seamless experience on mobile, tablet, and desktop devices.
+ - User-Friendly Interface: Intuitive navigation for an easy shopping experience.
+ - Secure Payments: Multiple secure payment options to choose from.
+ - Order Tracking: Keep track of your orders in real-time.
+ - Customer Reviews: Read and leave reviews for products.
+ - Wishlist: Save your favorite designs for future purchases.
+
+## 🚀Getting Started
 
 ### Prerequisites
 
@@ -99,22 +109,26 @@ Ensure that `Node.js` and `MySQL` are installed on your machine.
     node server.js
     ```
 
-After completing these steps, you should have the Drawn2Shoe application up and running on your local machine.
+After completing these steps, you should have the Drawn2Shoe application up and running on your local machine. 🎉
 
-## Contributing
+8). Make the required changes and add the changed file . 
+9). Open a pull request from your branch to the main repository.
+10). Provide a clear description of your changes and why they're valuable.
+
+## 🤝Contributing
 
 We welcome contributions to Drawn2Shoe! Please refer to our [Contributing Guidelines](CONTRIBUTING.md) for detailed information on how you can get involved.
 
-## Maintainers
+## 👥Maintainers
 
 -   [**Divij Sharma**](https://github.com/dvjsharma) 
 -   [**Shashank Shekhar**](https://github.com/ShashankShekhar07) 
 
-## License
+## 📜License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Message From PA
+## 💬Message From PA
 
 Welcome to Drawn2Shoe!
 
@@ -122,7 +136,7 @@ We're glad you're here and excited for you to explore our project. Whether you'r
 
 Feel free to dive in, get involved, and make Drawn2Shoe even better!
 
-Happy coding!
+Happy coding!💻✨
 
 <div>
  

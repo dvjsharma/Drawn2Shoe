@@ -1,8 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 body {
     font-family: "Source Serif 4", Georgia, serif;
+    @apply transition-colors duration-1000
 }
 .custom{
     font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;

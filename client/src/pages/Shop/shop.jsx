@@ -38,8 +38,8 @@ const Shop = () => {
         </button>
     );
     return (
-        <div>
-            <div>
+        <div className="dark:text-white">
+            <div >
                 <button
                     onClick={() => handleFilterChange("type", "1")}
                     className={`my-3 ml-3 underline underline-offset-8`}

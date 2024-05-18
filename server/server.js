@@ -1,7 +1,7 @@
-// import { app } from "./app.js";
+import { app } from "./app.js";
 
-// console.log(process.env.PORT)
+console.log(process.env.PORT)
 
-// app.listen(process.env.PORT, () => {
-//     console.log("Server is up and burning!");
-// })
+app.listen(process.env.PORT, () => {
+    console.log("Server is up and burning!");
+})

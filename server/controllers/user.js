@@ -5,8 +5,6 @@ import { con } from "../app.js";
 const signup = async (req, res) => {
     const { name, email, ppic, passwd, street, city, state, pincode } = req.body;
 
-    console.log(name,email, ppic, passwd, street, city, state, pincode )
-
     con.query(`SELECT * FROM mainuser WHERE email='${email}'`, async (err, result) => {
         if (err) {
             throw err;

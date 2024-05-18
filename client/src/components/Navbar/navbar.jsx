@@ -121,18 +121,6 @@ const Navbar = () => {
             </Menu>
             <nav className="flex items-center py-4 px-2 text-md">
                 <div className="flex gap-5 w-[30%] justify-center items-center max-lg:hidden">
-                    <div className="flex w-[50%] text-left justify-center items-center max-lg:w-full max-lg:justify-start ">
-                    <div className="lg:hidden">
-                            <Divide
-                                size={20}
-                                toggled={toggled}
-                                toggle={setToggled}
-                            />
-                        </div>
-                        <Link to="/" className="font-bold text-[25px]">
-                            <img src={logo2} alt="" className="w-10" />
-                        </Link>
-                    </div>
                     <NavLink
                         to="/"
                         button className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10"
@@ -150,14 +138,14 @@ const Navbar = () => {
                     <NavLink
                         to="customize"
                         className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
-                        activeClassName="nav-link-active"
+                        activeClassName="nav-link-active underline"
                     >
                         Customize
                     </NavLink>
                     <NavLink
                         to="shop"
-                        className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-8 ml-1"
-                        activeClassName="nav-link-active"
+                        className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                        activeClassName="nav-link-active underline"
                     >
                         Shop
                     </NavLink>

@@ -111,10 +111,6 @@ Ensure that `Node.js` and `MySQL` are installed on your machine.
 
 After completing these steps, you should have the Drawn2Shoe application up and running on your local machine. 🎉
 
-8). Make the required changes and add the changed file . 
-9). Open a pull request from your branch to the main repository.
-10). Provide a clear description of your changes and why they're valuable.
-
 ## 🤝Contributing
 
 We welcome contributions to Drawn2Shoe! Please refer to our [Contributing Guidelines](CONTRIBUTING.md) for detailed information on how you can get involved.

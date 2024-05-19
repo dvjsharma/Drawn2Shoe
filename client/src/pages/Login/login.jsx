@@ -41,8 +41,8 @@ const Login = () => {
         <>
             <div className="">
                 <div className="p-8 lg:w-1/2 mx-auto">
-                    <div className="bg-gray-100 rounded-b-lg py-12 px-4 lg:px-24">
-                        <p className="text-center text-sm text-gray-500 font-light">
+                    <div className="bg-gray-100 rounded-b-lg py-12 px-4 lg:px-24 dark:bg-slate-800">
+                        <p className="text-center text-sm text-gray-500 font-light dark:text-white">
                             Sign in with credentials
                         </p>
 
@@ -115,7 +115,7 @@ const Login = () => {
                             </div>
                             <hr className="m-4" />
                             <div className="flex items-center justify-center mt-5">
-                                <span className=" text-gray-500">
+                                <span className=" text-gray-500 dark:text-white">
                                     DO NOT HAVE A ACCOUNT ?!
                                 </span>{" "}
                                 <Link

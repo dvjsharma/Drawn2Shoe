@@ -12,13 +12,13 @@ const Categories = () => {
     return (
         <div>
             <div className="text-center p-10">
-                <h1 className="categories text-4xl mb-4 font-medium">
+                <h1 className="categories text-4xl mb-4 font-medium dark:text-white">
                     Explore our amazing Categories!
                 </h1>
             </div>
             <div
                 id="Projects"
-                className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5"
+                className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-10 mb-5 dark:text-white"
             >
                 {todisplay}
             </div>

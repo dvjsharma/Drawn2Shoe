@@ -13,7 +13,7 @@ const Carousel = () => {
     return (
         <div
             ref={carousel}
-            className="relative overflow-x-hidden flex w-[100vw] h-[300px]  items-center scroll-auto transition-transform: flex-row my-8"
+            className="relative overflow-x-hidden flex w-[100vw] h-[300px]  items-center scroll-auto transition-transform: flex-row my-8 "
         >
             <div className="flex animate-marquee">
                 <Link to="/categories" className="mx-3 h-[250px] w-[250px]">

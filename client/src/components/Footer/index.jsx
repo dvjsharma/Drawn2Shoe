@@ -1,21 +1,31 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/logo-final.png";
+import logowhite from '../../assets/logowhite.png'
+import logoblack from '../../assets/logoblack.png'
+import { useSelector } from "react-redux";
+
+
 
 const Footer = () => {
+
+    // For Dark Mode using Redux
+    const theme = useSelector((state) => state.theme.theme);
+    // For Dark Mode using Redux
+
     return (
         <div className="flex items-center justify-center w-full flex-col max-lg:mt-7">
             <div className="flex items-center justify-center w-[80%] flex-wrap min-h-[6rem] max-lg:flex-col font-bold">
                 <div className="flex items-center w-[20%] text-3xl flex-wrap my-3 max-lg:justify-center max-lg:w-full">
-                    <img src={logo} alt="" className="h-9 w-48" />
+                <img src={theme === "dark" ? logowhite : logoblack} alt="" className="h-9 w-48" /> 
                 </div>
-                <div className="flex items-center justify-center w-[60%] text-[15px] flex-wrap gap-4 my-3">
+                <div className="flex items-center justify-center w-[60%] text-[15px] flex-wrap gap-4 my-3 dark:text-slate-300">
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="categories">Categories</NavLink>
                     <NavLink to="customize">Customize</NavLink>
                     <NavLink to="shop">Shop</NavLink>
                 </div>
-                <div className="flex items-center  w-[20%] gap-3 my-3 justify-end max-lg:justify-center">
+                <div className="flex items-center  w-[20%] gap-3 my-3 justify-end max-lg:justify-center dark:text-white">
                     <a
                         href="https://twitter.com/drawn2shoe61810"
                         target="_blank"
@@ -40,7 +50,7 @@ const Footer = () => {
                             aria-labelledby="anxzlakyplg77qoc9l64rzi4s0sin9od"
                             role="img"
                             viewBox="0 0 24 24"
-                            className="icon h-[1rem]"
+                            className="icon h-[1rem] dark:fill-white"
                         >
                             <title id="anxzlakyplg77qoc9l64rzi4s0sin9od">
                                 Facebook icon
@@ -60,7 +70,7 @@ const Footer = () => {
                             strokeLinejoin="round"
                             strokeMiterlimit="1.414"
                             role="img"
-                            className="icon h-[1rem]"
+                            className="icon h-[1rem] dark:fill-white"
                         >
                             <path d="M8 0C5.827 0 5.555.01 4.702.048 3.85.088 3.27.222 2.76.42c-.526.204-.973.478-1.417.923-.445.444-.72.89-.923 1.417-.198.51-.333 1.09-.372 1.942C.008 5.555 0 5.827 0 8s.01 2.445.048 3.298c.04.852.174 1.433.372 1.942.204.526.478.973.923 1.417.444.445.89.72 1.417.923.51.198 1.09.333 1.942.372.853.04 1.125.048 3.298.048s2.445-.01 3.298-.048c.852-.04 1.433-.174 1.942-.372.526-.204.973-.478 1.417-.923.445-.444.72-.89.923-1.417.198-.51.333-1.09.372-1.942.04-.853.048-1.125.048-3.298s-.01-2.445-.048-3.298c-.04-.852-.174-1.433-.372-1.942-.204-.526-.478-.973-.923-1.417-.444-.445-.89-.72-1.417-.923-.51-.198-1.09-.333-1.942-.372C10.445.008 10.173 0 8 0zm0 1.44c2.136 0 2.39.01 3.233.048.78.036 1.203.166 1.485.276.374.145.64.318.92.598.28.28.453.546.598.92.11.282.24.705.276 1.485.038.844.047 1.097.047 3.233s-.01 2.39-.048 3.233c-.036.78-.166 1.203-.276 1.485-.145.374-.318.64-.598.92-.28.28-.546.453-.92.598-.282.11-.705.24-1.485.276-.844.038-1.097.047-3.233.047s-2.39-.01-3.233-.048c-.78-.036-1.203-.166-1.485-.276-.374-.145-.64-.318-.92-.598-.28-.28-.453-.546-.598-.92-.11-.282-.24-.705-.276-1.485C1.45 10.39 1.44 10.136 1.44 8s.01-2.39.048-3.233c.036-.78.166-1.203.276-1.485.145-.374.318-.64.598-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276C5.61 1.45 5.864 1.44 8 1.44zm0 2.452c-2.27 0-4.108 1.84-4.108 4.108 0 2.27 1.84 4.108 4.108 4.108 2.27 0 4.108-1.84 4.108-4.108 0-2.27-1.84-4.108-4.108-4.108zm0 6.775c-1.473 0-2.667-1.194-2.667-2.667 0-1.473 1.194-2.667 2.667-2.667 1.473 0 2.667 1.194 2.667 2.667 0 1.473-1.194 2.667-2.667 2.667zm5.23-6.937c0 .53-.43.96-.96.96s-.96-.43-.96-.96.43-.96.96-.96.96.43.96.96z"></path>
                         </svg>
@@ -82,7 +92,7 @@ const Footer = () => {
                     </a>
                 </div>
             </div>
-            <div className="flex items-center justify-center w-[80%] flex-wrap min-h-[3rem] max-lg:flex-col text-[#6e6d7a] text-[15px]">
+            <div className="flex items-center justify-center w-[80%] flex-wrap min-h-[3rem] max-lg:flex-col text-[#6e6d7a] dark:text-slate-400 text-[15px]">
                 <div className="flex w-[50%] my-3 flex-wrap max-lg:justify-center">
                     © 2023 Drawn2Shoe.
                 </div>

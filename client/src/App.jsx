@@ -7,6 +7,7 @@ import Customize from "./pages/Customize/customize";
 import Shop from "./pages/Shop/shop";
 import Login from "./pages/Login/login";
 import Signup from "./pages/Signup/signup";
+import Logout from './pages/Logout/Logout';
 import Layout_retailer from "./components/layout-retailer";
 import Designer_home from "./pages/Designers";
 import About from "./pages/About";
@@ -24,6 +25,7 @@ function App() {
                     <Route path="shop" element={<Shop />} />
                     <Route path="login" element={<Login />} />
                     <Route path="signup" element={<Signup />} />
+                    <Route path="logout" element={<Logout />} />
                     <Route path="designers" element={<Designer_home />} />
                     <Route path="about" element={<About />} />
                     <Route path="product" element={<Product />} />

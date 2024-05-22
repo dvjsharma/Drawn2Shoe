@@ -54,6 +54,14 @@ const login = async (req, res) => {
 
 }
 
+const logout = (req, res) => {
+    res.clearCookie('jjtoken'); // Clear the 'jjtoken' cookie
+    res.status(200).json({
+        success: true,
+        message: "Logged out successfully"
+    });
+}
+
 const getMyProfile = (req, res) => {
     res.status(200).json({
         message: "Success",
@@ -100,4 +108,4 @@ const registerretailer = (req, res) => {
 
 
 
-export { login, signup, getMyProfile, registerdesigner, registerretailer };
+export { login, signup, getMyProfile, registerdesigner, registerretailer , logout };

@@ -168,13 +168,13 @@ const Navbar = () => {
                 >
                     <Link to="login">
                         {" "}
-                        <button className="inline-block rounded-full border-2 border-neutral-800 px-4 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-neutral-800 transition duration-100 ease-in-out hover:border-neutral-800 hover:bg-black hover:text-white focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:hidden hover:text-white">
+                        <button className="inline-block rounded-full border-2 border-neutral-800 px-4 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-neutral-800 transition duration-100 ease-in-out hover:border-neutral-800 hover:bg-black hover:text-white focus:border-neutral-800 focus:bg-neutral-200 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:bg-neutral-300 active:text-neutral-900 max-lg:hidden">
                             Login
                         </button>{" "}
                     </Link>
                     <Link to="signup">
                         {" "}
-                        <button className="inline-block bg-black  rounded-full border-2 border-neutral-800 px-6 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-white transition duration-100 ease-in-out hover:border-neutral-800 hover:bg-white hover:text-black focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 focus:text-white">
+                        <button className="inline-block bg-black rounded-full border-2 border-neutral-800 px-6 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-white transition duration-100 ease-in-out hover:border-neutral-800 hover:bg-white hover:text-black focus:border-neutral-800 focus:bg-neutral-200 focus:text-black focus:outline-none focus:ring-0 active:border-neutral-900 active:bg-neutral-300 active:text-black">
                             SignUp
                         </button>{" "}
                     </Link>

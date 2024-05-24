@@ -3,6 +3,7 @@ import { Link, NavLink,useNavigate } from "react-router-dom";
 import { Divide, Divide as Hamburger } from "hamburger-react";
 import { stack as Menu } from "react-burger-menu";
 import logo from "../../assets/logo-final.png";
+import logo2 from "../../assets/shoelogo.jpg";
 import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import { logOut, setUsername } from "../../redux/auth-slice";
@@ -13,6 +14,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const logged = useSelector((state)=>state.auth.value.isAuth);
     const username = useSelector((state)=>state.auth.value.username);
+
 
     useEffect(() => {
         const checklogin = async () => {
@@ -33,10 +35,12 @@ const Navbar = () => {
                 }
             }
         };
+
         if(logged){
             checklogin();
         }
     }, [logged]);
+
     var styles = {
         bmBurgerButton: {
             display: "none",
@@ -74,7 +78,9 @@ const Navbar = () => {
             background: "rgba(0, 0, 0, 0.3)",
         },
     };
+
     const [toggled, setToggled] = useState(false);
+
     return (
         <>
             <Menu
@@ -129,42 +135,38 @@ const Navbar = () => {
                     Login
                 </Link>
             </Menu>
-            <nav className="flex items-center py-4 px-2 text-sm">
-                <div className="flex gap-4 w-[30%] justify-center items-center max-lg:hidden">
+            <nav className="flex items-center py-4 px-2 text-md">
+                <div className="flex gap-5 w-[30%] justify-center items-center max-lg:hidden">
                     <NavLink
                         to="/"
-                        className={({ isActive }) =>
-                            isActive ? "underline underline-offset-8 " : null
-                        }
+                        button className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10"
+                        activeClassName="nav-link-active underline"
                     >
                         Home
                     </NavLink>
                     <NavLink
                         to="categories"
-                        className={({ isActive }) =>
-                            isActive ? "underline underline-offset-8 " : null
-                        }
+                        className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                        activeClassName="nav-link-active underline"
                     >
                         Categories
                     </NavLink>
                     <NavLink
                         to="customize"
-                        className={({ isActive }) =>
-                            isActive ? "underline underline-offset-8 " : null
-                        }
+                        className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                        activeClassName="nav-link-active underline"
                     >
                         Customize
                     </NavLink>
                     <NavLink
                         to="shop"
-                        className={({ isActive }) =>
-                            isActive ? "underline underline-offset-8 " : null
-                        }
+                        className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                        activeClassName="nav-link-active underline"
                     >
                         Shop
                     </NavLink>
                 </div>
-                <div className="flex w-[50%] text-left justify-center items-center max-lg:w-full max-lg:justify-start">
+                <div className="flex w-[69%] text-left justify-center items-center max-lg:w-full max-lg:justify-start">
                     <div className="lg:hidden">
                         <Divide
                             size={20}
@@ -222,6 +224,7 @@ const Navbar = () => {
                         </div>
                     )
                 }
+
             </nav>
         </>
     );

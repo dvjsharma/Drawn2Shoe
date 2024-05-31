@@ -11,6 +11,7 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center justify-center w-[60%] text-[15px] flex-wrap gap-4 my-3">
                     <NavLink to="/">Home</NavLink>
+                    <NavLink to="/about">About us</NavLink>
                     <NavLink to="categories">Categories</NavLink>
                     <NavLink to="customize">Customize</NavLink>
                     <NavLink to="shop">Shop</NavLink>

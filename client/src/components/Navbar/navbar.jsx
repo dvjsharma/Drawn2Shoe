@@ -129,6 +129,13 @@ const Navbar = () => {
                         Home
                     </NavLink>
                     <NavLink
+                        to="about"
+                        className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                        activeClassName="nav-link-active underline"
+                    >
+                        About_Us 
+                    </NavLink>
+                    <NavLink
                         to="categories"
                         className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
                         activeClassName="nav-link-active underline"

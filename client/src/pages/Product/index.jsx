@@ -10,7 +10,6 @@ const Product = () => {
 
     function handleChange(event) {
         setShoeSize(parseInt(event.target.innerText));
-        console.log(shoeSize);
     }
     async function handleSubmit(event) {
         event.preventDefault();

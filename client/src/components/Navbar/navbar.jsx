@@ -139,29 +139,41 @@ const Navbar = () => {
                 <div className="flex gap-5 w-[30%] justify-center items-center max-lg:hidden">
                     <NavLink
                         to="/"
-                        button className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10"
-                        activeClassName="nav-link-active underline"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "nav-link-active underline nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10"
+                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10"
+                        }
                     >
                         Home
                     </NavLink>
                     <NavLink
                         to="categories"
-                        className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
-                        activeClassName="nav-link-active underline"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "nav-link-active underline nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                        }
                     >
                         Categories
                     </NavLink>
                     <NavLink
                         to="customize"
-                        className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
-                        activeClassName="nav-link-active underline"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "nav-link-active underline nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                        }
                     >
                         Customize
                     </NavLink>
                     <NavLink
                         to="shop"
-                        className="nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
-                        activeClassName="nav-link-active underline"
+                        className={({ isActive }) =>
+                            isActive
+                                ? "nav-link-active underline nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                        }
                     >
                         Shop
                     </NavLink>

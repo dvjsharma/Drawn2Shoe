@@ -8,7 +8,7 @@ const Categories = () => {
             .then((res) => res.json())
             .then((data) => setData(data.data));
     }, []);
-    const todisplay = data.map((item) => <CategoryCard {...item} />);
+    const todisplay = data.map((item) => <CategoryCard key={item.categoryId} {...item} />);
     return (
         <div>
             <div className="text-center p-10">

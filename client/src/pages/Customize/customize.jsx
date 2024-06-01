@@ -63,7 +63,7 @@ const Customize = () => {
                                 <div className="lg:col-span-2">
                                     <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
                                         <div className="md:col-span-5">
-                                            <label for="shoe_model">
+                                            <label htmlFor="shoe_model">
                                                 Shoe Model
                                             </label>
                                             <select
@@ -77,7 +77,7 @@ const Customize = () => {
                                             </select>
                                         </div>
                                         <div className="md:col-span-5">
-                                            <label for="shoe_size">
+                                            <label htmlFor="shoe_size">
                                                 Shoe Size
                                             </label>
                                             <select
@@ -97,7 +97,7 @@ const Customize = () => {
                                             className="md:col-span-5"
                                         >
                                             <div className="md:col-span-5">
-                                                <label for="design_desc">
+                                                <label htmlFor="design_desc">
                                                     Design Description
                                                 </label>
                                                 <textarea
@@ -112,7 +112,7 @@ const Customize = () => {
                                             </div>
 
                                             <div className="md:col-span-5">
-                                                <label for="design_img">
+                                                <label htmlFor="design_img">
                                                     Design Link
                                                 </label>
                                                 <input

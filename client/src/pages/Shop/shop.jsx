@@ -15,7 +15,7 @@ const Shop = () => {
         ? data.filter((item) => item.categoryId === typeFilter)
         : data;
 
-    const todisplay = FilteredArray.map((item) => <Productcard {...item} />);
+    const todisplay = FilteredArray.map((item) => <Productcard key={item.pId} {...item} />);
 
     function handleFilterChange(key, value) {
         setSearchParam((prevParams) => {

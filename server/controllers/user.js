@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import { sendCookie } from "../utils/features.js";
 import { con } from "../app.js";
 

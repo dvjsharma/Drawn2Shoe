@@ -13,9 +13,11 @@ import About from "./pages/About";
 import Retailer_home from "./pages/Retailer-home";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
+import ScrollToTop from "./components/ScrollToTop";
 function App() {
     return (
         <BrowserRouter>
+            <ScrollToTop/>
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />

@@ -1,6 +1,7 @@
 import React from "react";
 import review1 from "../../assets/reviews/review_2.jpeg";
 import review2 from "../../assets/reviews/review_1.jpg";
+
 const Carousel2 = () => {
     return (
         <div className="flex w-full items-center justify-center">
@@ -172,6 +173,7 @@ const Carousel2 = () => {
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     );

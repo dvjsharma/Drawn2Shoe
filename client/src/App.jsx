@@ -1,18 +1,18 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/layout";
-import Home from "./pages/Home/home";
+import Layout_retailer from "./components/layout-retailer";
+import About from "./pages/About";
+import Cart from "./pages/Cart";
 import Categories from "./pages/Categories/categories";
 import Customize from "./pages/Customize/customize";
-import Shop from "./pages/Shop/shop";
-import Login from "./pages/Login/login";
-import Signup from "./pages/Signup/signup";
-import Layout_retailer from "./components/layout-retailer";
 import Designer_home from "./pages/Designers";
-import About from "./pages/About";
-import Retailer_home from "./pages/Retailer-home";
+import Home from "./pages/Home/home";
+import Login from "./pages/Login/login";
 import Product from "./pages/Product";
-import Cart from "./pages/Cart";
+import Retailer_home from "./pages/Retailer-home";
+import Shop from "./pages/Shop/shop";
+import Signup from "./pages/Signup/signup";
 function App() {
     return (
         <BrowserRouter>
@@ -31,6 +31,7 @@ function App() {
                     <Route path="retailer" element={<Layout_retailer />}>
                         <Route index element={<Retailer_home />} />
                     </Route>
+                    
                 </Route>
             </Routes>
         </BrowserRouter>

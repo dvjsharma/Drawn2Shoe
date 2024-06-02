@@ -12,7 +12,7 @@ const Guide = () => {
                     Create Custom Shoes in 3 Easy Steps!
                 </div>
                 <div className="flex gap-4 max-md:flex-col">
-                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5">
+                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5 transition-all duration-500 ease-in-out hover:translate-y-2">
                         <img src={step1} alt="" />
                         <br />
                         <p className="font-bold text-[24px] custom">
@@ -26,7 +26,7 @@ const Guide = () => {
                             <li>Many styles have black or white soles.</li>
                         </ul>
                     </div>
-                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5">
+                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5 transition-all duration-500 ease-in-out hover:translate-y-2">
                         <img src={step2} alt="" />
                         <br />
                         <p className="font-bold text-[24px] custom">
@@ -40,7 +40,7 @@ const Guide = () => {
                             <li>View mockup of custom shoes in real time</li>
                         </ul>
                     </div>
-                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5">
+                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5 transition-all duration-500 ease-in-out hover:translate-y-2">
                         <img src={step3} alt="" />
                         <br />
                         <p className="font-bold text-[24px] custom">

@@ -51,6 +51,8 @@ const Cart = () => {
                 },
                 withCredentials: true,
             });
+
+            console.log(data)
             setCartitems(data.data);
         };
         fetchcart();
@@ -94,7 +96,8 @@ const Cart = () => {
                     <div className="rounded-lg md:w-2/3">
                         {cartitems
                             ? cartitems.map((item) => (
-                                  <Cartcard
+                                  <Cartcard 
+                                      key={item.productId}
                                       productId={item.productId}
                                       productImage={item.productImage}
                                       shoename={item.shoename}

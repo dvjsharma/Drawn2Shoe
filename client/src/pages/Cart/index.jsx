@@ -88,11 +88,11 @@ const Cart = () => {
     }
     return (
         <>
-            <div className=" bg-gray-100 pt-20">
-                <h1 className="mb-10 text-center text-2xl font-bold">
+            <div className=" bg-gray-100 dark:bg-slate-700 dark:shadow-gray-800 pt-20">
+                <h1 className="mb-10 text-center text-2xl font-bold dark:text-white">
                     Cart Items
                 </h1>
-                <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+                <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 dark:text-white">
                     <div className="rounded-lg md:w-2/3">
                         {cartitems
                             ? cartitems.map((item) => (
@@ -110,21 +110,21 @@ const Cart = () => {
                     </div>
                     <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
                         <div className="mb-2 flex justify-between">
-                            <p className="text-gray-700">Subtotal</p>
-                            <p className="text-gray-700">₹ {subtotal}</p>
+                            <p className="text-gray-700 dark:text-gray-400">Subtotal</p>
+                            <p className="text-gray-700 dark:text-gray-400">₹ {subtotal}</p>
                         </div>
                         <div className="flex justify-between">
-                            <p className="text-gray-700">Shipping</p>
-                            <p className="text-gray-700">₹ 110</p>
+                            <p className="text-gray-700 dark:text-gray-400">Shipping</p>
+                            <p className="text-gray-700 dark:text-gray-400">₹ 110</p>
                         </div>
                         <hr className="my-4" />
                         <div className="flex justify-between">
-                            <p className="text-lg font-bold">Total</p>
+                            <p className="text-lg font-bold dark:text-white">Total</p>
                             <div className="">
-                                <p className="mb-1 text-lg font-bold">
+                                <p className="mb-1 text-lg font-bold dark:text-white">
                                     ₹ {subtotal + 110} INR
                                 </p>
-                                <p className="text-sm text-gray-700">
+                                <p className="text-sm text-gray-700 dark:text-gray-400">
                                     including VAT
                                 </p>
                             </div>

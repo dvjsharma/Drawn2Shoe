@@ -4,9 +4,13 @@ import { Divide, Divide as Hamburger } from "hamburger-react";
 import { stack as Menu } from "react-burger-menu";
 import logo from "../../assets/logo-final.png";
 import logo2 from "../../assets/shoelogo.jpg";
+import logowhite from '../../assets/logowhite.png';
+import logoblack from '../../assets/logoblack.png';
 import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import { logOut, setUsername } from "../../redux/auth-slice";
+import { MdLightMode, MdDarkMode } from "react-icons/md";
+import { toggleTheme, setTheme } from '../../redux/actions/themeActions';
 
 const Navbar = () => {
 
@@ -14,7 +18,9 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const logged = useSelector((state)=>state.auth.value.isAuth);
     const username = useSelector((state)=>state.auth.value.username);
-
+    const theme = useSelector((state) => state.theme.theme);
+    const [toggled, setToggled] = useState(false);
+    
 
     useEffect(() => {
         const checklogin = async () => {
@@ -39,7 +45,23 @@ const Navbar = () => {
         if(logged){
             checklogin();
         }
-    }, [logged]);
+    }, [logged, dispatch]);
+
+    useEffect(() => {
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            dispatch(setTheme('dark'));
+        } else {
+            dispatch(setTheme('light'));
+        }
+    }, [dispatch]);
+
+    useEffect(() => {
+        if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [theme]);
 
     var styles = {
         bmBurgerButton: {
@@ -79,7 +101,7 @@ const Navbar = () => {
         },
     };
 
-    const [toggled, setToggled] = useState(false);
+    // const [toggled, setToggled] = useState(false);
 
     return (
         <>
@@ -135,7 +157,7 @@ const Navbar = () => {
                     Login
                 </Link>
             </Menu>
-            <nav className="flex items-center py-4 px-2 text-md">
+            <nav className="flex items-center py-4 px-2 text-md dark:text-white">
                 <div className="flex gap-5 w-[30%] justify-center items-center max-lg:hidden">
                     <NavLink
                         to="/"
@@ -187,56 +209,56 @@ const Navbar = () => {
                         />
                     </div>
                     <Link to="/" className="font-bold text-[25px]">
-                        <img src={logo} alt="" className="w-40" />
+                    <img src={theme === "dark" ? logowhite : logoblack} alt="" className="w-40" />
                     </Link>
                 </div>
-                {
-                    !logged && (
-                        <div
-                        className="flex w-[30%] justify-center gap-4 max-lg:w-full max-lg:justify-end "
-                        >
-                            <Link to="login">
-                                {" "}
-                                <button className="inline-block rounded-full border-2 border-neutral-800 px-4 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-neutral-800 transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-black hover:text-white focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:hidden">
-                                    Login
-                                </button>{" "}
-                            </Link>
-                            <Link to="signup">
-                                {" "}
-                                <button className="inline-block bg-black  rounded-full border-2 border-neutral-800 px-6 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-white hover:text-black focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 ">
-                                    SignUp
-                                </button>{" "}
-                            </Link>
-                        </div>
+                <div className="flex w-[30%] justify-center gap-4 max-lg:w-full max-lg:justify-end ">
+                    <div onClick={() => dispatch(toggleTheme())} className="text-2xl border rounded-full border-lg border-black dark:border dark:border-lg dark:rounded-full dark:border-yellow-500 p-1 cursor-pointer hover:scale-110 transition-all dark:text-yellow-400 text-center self-center">
+                        {theme === "dark" ? <MdLightMode /> : <MdDarkMode />}
+                    </div>
+                    {
+                        !logged && (
+                            <>
+                                <Link to="login">
+                                    {" "}
+                                    <button className="inline-block rounded-full border-2 border-neutral-800 px-4 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-neutral-800 transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-black hover:text-white focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:hidden dark:border-white dark:text-white dark:hover:text-black dark:hover:bg-white">
+                                        Login
+                                    </button>{" "}
+                                </Link>
+                                <Link to="signup">
+                                    {" "}
+                                    <button className="inline-block bg-black  rounded-full border-2 border-neutral-800 px-6 pb-[6px] pt-2 text-[12px] font-medium uppercase leading-normal text-white transition duration-150 ease-in-out hover:border-neutral-800 hover:bg-white hover:text-black focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 dark:bg-white dark:text-black dark:hover:bg-transparent dark:hover:text-white dark:border-white">
+                                        SignUp
+                                    </button>{" "}
+                                </Link>
+                            </>
+                            )
+                    }
+                    {
+                        logged && (
+                            <>
+                                Hi {username}
+                                <Link to="cart">
+                                    <img
+                                        src="https://icons.veryicon.com/png/o/miscellaneous/unicons/cart-38.png"
+                                        className="w-8"
+                                        alt=""
+                                    />
+                                </Link>
+                                <button onClick={()=>dispatch(logOut())}>
+                                    <svg
+                                        viewBox="0 0 900 1000"
+                                        fill="currentColor"
+                                        height="25px"
+                                        width="25px"
+                                        >
+                                            <path d="M502 850V750h98v100c0 26.667-9.667 50-29 70s-43 30-71 30H100c-26.667 0-50-10-70-30S0 876.667 0 850V150c0-28 10-51.667 30-71s43.333-29 70-29h400c28 0 51.667 9.667 71 29s29 43 29 71v150h-98V150H100v700h402m398-326L702 720V600H252V450h450V330l198 194" />
+                                    </svg>
+                                </button>
+                            </>
                         )
-                }
-                {
-                    logged && (
-                        <div
-                            className="flex w-[30%] text-base items-center justify-center gap-4 max-lg:w-full max-lg:justify-end "
-                        >
-                            Hi {username}
-                            <Link to="cart">
-                                <img
-                                    src="https://icons.veryicon.com/png/o/miscellaneous/unicons/cart-38.png"
-                                    className="w-8"
-                                    alt=""
-                                />
-                            </Link>
-                            <button onClick={()=>dispatch(logOut())}>
-                                <svg
-                                    viewBox="0 0 900 1000"
-                                    fill="currentColor"
-                                    height="25px"
-                                    width="25px"
-                                    >
-                                        <path d="M502 850V750h98v100c0 26.667-9.667 50-29 70s-43 30-71 30H100c-26.667 0-50-10-70-30S0 876.667 0 850V150c0-28 10-51.667 30-71s43.333-29 70-29h400c28 0 51.667 9.667 71 29s29 43 29 71v150h-98V150H100v700h402m398-326L702 720V600H252V450h450V330l198 194" />
-                                </svg>
-                            </button>
-                        </div>
-                    )
-                }
-
+                    }
+                </div>
             </nav>
         </>
     );

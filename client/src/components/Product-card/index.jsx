@@ -19,17 +19,17 @@ const Productcard = ({ shoeImage, shoeName, brand, pId, price }) => {
                         <span className="text-gray-400 mr-3 uppercase text-xs">
                             {brand}
                         </span>
-                        <p className="text-lg font-bold text-black truncate block capitalize">
+                        <p className="text-lg font-bold text-black dark:text-white truncate block capitalize">
                             {shoeName}
                         </p>
                         <div className="flex items-center">
-                            <p className="text-lg font-semibold text-black cursor-auto my-3">
+                            <p className="text-lg font-semibold text-black dark:text-white cursor-auto my-3">
                                 {`₹${parseInt(
                                     price * 0.9 + price * 0.2 * 0.9
                                 )}`}
                             </p>
                             <del>
-                                <p className="text-sm text-gray-600 cursor-auto ml-2">
+                                <p className="text-sm text-gray-600 dark:text-gray-400 cursor-auto ml-2">
                                     {`₹${price * 1.2}`}
                                 </p>
                             </del>

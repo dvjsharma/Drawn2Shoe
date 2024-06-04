@@ -44,13 +44,13 @@ const Retailer_home = () => {
     }
     return (
         <div>
-            <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
+            <div className="min-h-screen p-6 bg-gray-100 dark:bg-slate-700 dark:shadow-gray-800 dark:text-white flex items-center justify-center">
                 <div className="container max-w-screen-lg mx-auto">
                     <div>
-                        <div className="bg-white rounded-[20px] shadow-lg p-4 px-4 md:p-8 mb-6">
+                        <div className="bg-white dark:bg-slate-600 rounded-[20px] shadow-lg p-4 px-4 md:p-8 mb-6">
                             <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                                <div className="text-gray-600">
-                                    <p className="font-medium text-lg">
+                                <div className="text-gray-600 dark:text-gray-300">
+                                    <p className="font-medium text-lg dark:text-white">
                                         Shop Onboarding!
                                     </p>
                                     <p>Please fill out all the fields.</p>

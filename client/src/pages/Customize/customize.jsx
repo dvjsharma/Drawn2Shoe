@@ -46,12 +46,12 @@ const Customize = () => {
     }
     return (
         <div>
-            <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
+            <div className="min-h-screen p-6 bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
                 <div className="container max-w-screen-lg mx-auto">
                     <div>
-                        <div className="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+                        <div className="bg-white dark:bg-gray-900 dark:text-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                             <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                                <div className="text-gray-600">
+                                <div className="text-gray-600 dark:text-white">
                                     <p className="font-medium text-lg">
                                         You'll Design, We'll Create!
                                     </p>
@@ -69,7 +69,7 @@ const Customize = () => {
                                             <select
                                                 name="shoe_model"
                                                 id="shoe_model"
-                                                className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                                                className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 dark:bg-gray-800"
                                             >
                                                 <option>Crocs</option>
                                                 <option>Air Force 1</option>
@@ -83,7 +83,7 @@ const Customize = () => {
                                             <select
                                                 name="shoe_size"
                                                 id="shoe_size"
-                                                className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                                                className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 dark:bg-gray-800"
                                             >
                                                 <option>7</option>
                                                 <option>8</option>
@@ -104,7 +104,7 @@ const Customize = () => {
                                                     name="desc"
                                                     id="design_desc"
                                                     rows={"4"}
-                                                    className="border mt-1 rounded px-4 w-full bg-gray-50"
+                                                    className="border mt-1 rounded px-4 w-full bg-gray-50 dark:bg-gray-800"
                                                     placeholder="Describe your design..."
                                                     onChange={handleChange}
                                                     value={formData.desc}
@@ -118,7 +118,7 @@ const Customize = () => {
                                                 <input
                                                     type="text"
                                                     name="link"
-                                                    className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                                                    className="h-10 border mt-1 rounded px-4 w-full bg-gray-50 dark:bg-gray-800"
                                                     onChange={handleChange}
                                                     value={formData.link}
                                                 />

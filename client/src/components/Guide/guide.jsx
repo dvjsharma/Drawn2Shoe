@@ -6,13 +6,13 @@ import step1 from "../../assets/step_3.png";
 
 const Guide = () => {
     return (
-        <div className=" flex justify-center my-11 flex-col items-center">
+        <div className=" flex justify-center my-11 flex-col items-center dark:text-white">
             <div className="w-[80%] flex flex-col gap-6">
                 <div className="text-[50px] text-center custom max-md:text-[30px]">
                     Create Custom Shoes in 3 Easy Steps!
                 </div>
                 <div className="flex gap-4 max-md:flex-col">
-                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5">
+                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5 dark:shadow-gray-800  dark:bg-slate-700">
                         <img src={step1} alt="" />
                         <br />
                         <p className="font-bold text-[24px] custom">
@@ -26,7 +26,7 @@ const Guide = () => {
                             <li>Many styles have black or white soles.</li>
                         </ul>
                     </div>
-                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5">
+                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5 dark:shadow-gray-800  dark:bg-slate-700">
                         <img src={step2} alt="" />
                         <br />
                         <p className="font-bold text-[24px] custom">
@@ -40,7 +40,7 @@ const Guide = () => {
                             <li>View mockup of custom shoes in real time</li>
                         </ul>
                     </div>
-                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5">
+                    <div className="rounded-2xl shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] px-10 py-5 dark:shadow-gray-800  dark:bg-slate-700">
                         <img src={step3} alt="" />
                         <br />
                         <p className="font-bold text-[24px] custom">
@@ -58,7 +58,7 @@ const Guide = () => {
             </div>
             <div className="mt-[40px] shadow-[2px_4px_35px_4px_rgba(0,0,0,0.10)] rounded-full">
                 <Link to="/customize">
-                    <button className="inline-block bg-black text-white rounded-full border-2 border-black px-5 py-3 text-[25px] font-medium leading-normal transition duration-150 ease-in-out hover:bg-white hover:text-black focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:text-[14px] hover:border-black">
+                    <button className="inline-block bg-black text-white rounded-full border-2 border-black px-5 py-3 text-[25px] font-medium leading-normal transition duration-150 ease-in-out hover:bg-white hover:text-black focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:text-[14px] hover:border-black dark:bg-white dark:text-black dark:hover:bg-transparent dark:hover:border-white dark:hover:text-white">
                         Customize Now!
                     </button>
                 </Link>

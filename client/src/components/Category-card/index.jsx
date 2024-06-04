@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Productcard = ({ shoeImage, shoename, id, brand, categoryId }) => {
     return (
         <div
-            className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
+            className="w-72 bg-white dark:bg-slate-700 dark:shadow-gray-800 shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl"
         >
             <Link to={`./../shop?type=${categoryId}`}>
                 <img
@@ -15,7 +15,7 @@ const Productcard = ({ shoeImage, shoename, id, brand, categoryId }) => {
                     <span className="text-gray-400 mr-3 uppercase text-xs">
                         {brand}
                     </span>
-                    <p className="text-lg font-bold text-black truncate block capitalize">
+                    <p className="text-lg font-bold text-black dark:text-white truncate block capitalize">
                         {shoename}
                     </p>
                 </div>

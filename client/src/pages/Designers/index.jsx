@@ -41,7 +41,7 @@ const Designer_home = () => {
 
     return (
         <div>
-            <div className="flex justify-center items-center bg-white">
+            <div className="flex justify-center items-center bg-white dark:bg-slate-700 dark:shadow-gray-800 dark:text-white">
                 <div className="container mx-auto my-4 px-4 lg:px-20">
                     <form onSubmit={handleSubmit}>
                         <div className="w-full p-8 my-4 md:px-12 lg:w-9/12 lg:pl-20 lg:pr-40 mr-auto rounded-2xl shadow-2xl">
@@ -82,7 +82,7 @@ const Designer_home = () => {
                             </div>
                             <div className="my-2 w-1/2 lg:w-1/4">
                                 <button
-                                    className="text-sm tracking-wide bg-black text-gray-100 p-3 rounded-lg w-full 
+                                    className="text-sm tracking-wide bg-black dark:bg-gray-100 text-gray-100 dark:text-black p-3 rounded-lg w-full 
                       focus:outline-none focus:shadow-outline"
                                 >
                                     Send Message
@@ -91,12 +91,12 @@ const Designer_home = () => {
                         </div>
                     </form>
 
-                    <div className="font-serif w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-black rounded-2xl">
-                        <div className="flex flex-col text-white">
+                    <div className="font-serif w-full lg:-mt-96 lg:w-2/6 px-8 py-12 ml-auto bg-black dark:bg-gray-100 rounded-2xl">
+                        <div className="flex flex-col text-white dark:text-black">
                             <h1 className="text-4xl my-4">
                                 Drop in our office
                             </h1>
-                            <p className="text-gray-400">
+                            <p className="text-gray-400 dark:text-gray-800">
                                 We would love to have you drop by our office!
                                 Your presence and energy would truly brighten up
                                 our day. Looking forward to seeing you soon!
@@ -108,7 +108,7 @@ const Designer_home = () => {
                                 </div>
                                 <div className="flex flex-col">
                                     <h2 className="text-2xl">Main Office</h2>
-                                    <p className="text-gray-400">
+                                    <p className="text-gray-400 dark:text-gray-800">
                                         B-401, Hall of Residance 4, IIITDMJ PIN-
                                         482005
                                     </p>
@@ -121,10 +121,10 @@ const Designer_home = () => {
                                 </div>
                                 <div className="flex flex-col">
                                     <h2 className="text-2xl">Call Us</h2>
-                                    <p className="text-gray-400">
+                                    <p className="text-gray-400 dark:text-gray-800">
                                         Tel: xxxxx-xxxxx
                                     </p>
-                                    <p className="text-gray-400">
+                                    <p className="text-gray-400 dark:text-gray-800">
                                         Fax: xxxxx-xxxxx
                                     </p>
                                 </div>

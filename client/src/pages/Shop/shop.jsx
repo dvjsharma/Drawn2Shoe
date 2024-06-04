@@ -38,7 +38,7 @@ const Shop = () => {
         </button>
     );
     return (
-        <div>
+        <div className="dark:text-white">
             <div>
                 <button
                     onClick={() => handleFilterChange("type", "1")}

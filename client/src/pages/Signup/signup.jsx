@@ -64,8 +64,8 @@ const Signup = () => {
         <>
             <div className="">
                 <div className="p-8 lg:w-1/2 mx-auto">
-                    <div className="bg-gray-100 rounded-b-lg py-12 px-4 lg:px-24">
-                        <h1 className="text-center text-sm text-gray-500 font-semibold">
+                    <div className="bg-gray-100 rounded-b-lg py-12 px-4 lg:px-24 dark:bg-slate-800">
+                        <h1 className="text-center text-sm text-gray-500 font-semibold dark:text-white">
                             REGISTER HERE!!!
                         </h1>
 
@@ -274,7 +274,7 @@ const Signup = () => {
                             </div>
                             <hr className="m-4" />
                             <div className="flex items-center justify-center mt-5">
-                                <p className=" text-gray-500 ">
+                                <p className=" text-gray-500 dark:text-white">
                                     HAVE A ACCOUNT ?!
                                 </p>
                                 <Link

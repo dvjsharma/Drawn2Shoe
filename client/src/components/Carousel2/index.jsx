@@ -5,7 +5,7 @@ const Carousel2 = () => {
     return (
         <div className="flex w-full items-center justify-center">
             <div
-                className="carousel min-h-[300px] w-[700px] rounded-2xl mx-6 my-10"
+                className="carousel min-h-[300px] w-[700px] rounded-2xl mx-6 my-10 hover:translate-x-1 transition-all duration-300 ease-in-out"
                 style={{ boxShadow: "2px 4px 35px 4px rgba(0, 0, 0, 0.10)" }}
             >
                 <div
@@ -89,7 +89,7 @@ const Carousel2 = () => {
                 </div>
             </div>
             <div
-                className="carousel min-h-[300px] w-[700px] rounded-2xl mx-6 my-10 max-md:hidden"
+                className="carousel min-h-[300px] w-[700px] rounded-2xl mx-6 my-10 max-md:hidden hover:translate-x-1 transition-all duration-300 ease-in-out"
                 style={{ boxShadow: "2px 4px 35px 4px rgba(0, 0, 0, 0.10)" }}
             >
                 <div

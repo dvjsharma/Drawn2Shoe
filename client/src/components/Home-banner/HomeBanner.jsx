@@ -35,7 +35,7 @@ const HomeBanner = () => {
                     </div>
                 </div>
                 <div className="w-[60%] p-3 max-md:w-full flex justify-center">
-                    <img src={banner} alt="" />
+                    <img className="transition-all hover:scale-105 duration-700 ease-in-out" src={banner} alt="" />
                 </div>
             </div>
         </div>

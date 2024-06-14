@@ -14,6 +14,7 @@ import Retailer_home from "./pages/Retailer-home";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import ScrollToTop from "./components/ScrollToTop";
+import './App.css'
 function App() {
     return (
         <BrowserRouter>

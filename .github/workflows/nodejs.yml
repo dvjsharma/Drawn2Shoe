@@ -1,61 +1,29 @@
-name: Check Lint and Type Errors
+name: 'Lint and Type Check'
 
 on:
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: "Log level"
-        required: true
-        default: "warning"
-        type: choice
-        options:
-          - info
-          - warning
-          - debug
-      tags:
-        description: "Test scenario tags"
-        required: false
-        type: boolean
-      # environment:
-      #   description: "Environment to run tests against"
-      #   type: environment
-
-  pull_request:
-    branches:
-      - main
-      - production
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
 
 jobs:
-  check-lint-and-type-errors:
-    runs-on: windows-latest
-    # strategy:
-    #   matrix:
-    #     os: [ubuntu-latest, windows-latest, macos-latest]
+  check:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
 
-      - name: Run lint checks
-        run: npm lint
+      - name: Run lint
+        run: |
+          npm run lint
 
       - name: Run type checks
-        run: npm type-check
-
-      - name: Report results
-        uses: actions/upload-artifact@v2
-        with:
-          name: lint-and-type-errors
-          path: lint-and-type-errors.txt
-
-      - name: Display inputs
         run: |
-          echo "Log level: $LEVEL"
-          echo "Tags: $TAGS"
-          # echo "Environment: $ENVIRONMENT"
-        env:
-          LEVEL: ${{ inputs.logLevel }}
-          TAGS: ${{ inputs.tags }}
-
+          npm run type-checks

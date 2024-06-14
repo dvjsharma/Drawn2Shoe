@@ -23,9 +23,9 @@ jobs:
 
       - name: Run client lint
         run: |
-          npm run lint --prefix client/
+          npm run lint --prefix client/ --fix
 
-      - name: Run client type checks
+      - name: Run client-type checks
         run: |
           npm run type-checks --prefix client/
 
@@ -35,8 +35,15 @@ jobs:
 
       - name: Run server lint
         run: |
-          npm run lint --prefix server/
+          npm run lint --prefix server/ --fix
 
-      - name: Run server type checks
+      - name: Run server-type checks
         run: |
           npm run type-checks --prefix server/
+
+      - name: Run PR title checker
+        uses: thehanimo/pr-title-checker@v1.3.7
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          pass_on_octokit_error: false
+          configuration_path: '.github/pr-title-checker.json'

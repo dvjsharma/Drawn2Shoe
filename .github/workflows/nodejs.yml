@@ -25,7 +25,7 @@ jobs:
         run: |
           npm run lint --prefix client/ --fix
 
-      - name: Run client-type checks
+      - name: Run client type checks
         run: |
           npm run type-checks --prefix client/
 
@@ -37,7 +37,7 @@ jobs:
         run: |
           npm run lint --prefix server/ --fix
 
-      - name: Run server-type checks
+      - name: Run server type checks
         run: |
           npm run type-checks --prefix server/
 

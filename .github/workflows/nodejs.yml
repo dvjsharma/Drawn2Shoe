@@ -17,14 +17,26 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dependencies
+      - name: Install client dependencies
         run: |
-          npm install
+          npm install --prefix client/
 
-      - name: Run lint
+      - name: Run client lint
         run: |
-          npm run lint
+          npm run lint --prefix client/
 
-      - name: Run type checks
+      - name: Run client type checks
         run: |
-          npm run type-checks
+          npm run type-checks --prefix client/
+
+      - name: Install server dependencies
+        run: |
+          npm install --prefix server/
+
+      - name: Run server lint
+        run: |
+          npm run lint --prefix server/
+
+      - name: Run server type checks
+        run: |
+          npm run type-checks --prefix server/

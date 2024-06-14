@@ -5,7 +5,7 @@ import { con } from "../app.js";
 export const isAuthenticated = async (req, res, next) => {
     const { jjtoken } = req.cookies;
     if (!jjtoken) {
-        return res.status(404).json({
+        return res.status(200).json({
             success: false,
             message: "Login First",
         });

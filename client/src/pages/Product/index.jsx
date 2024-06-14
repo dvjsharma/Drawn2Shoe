@@ -6,20 +6,24 @@ import { useLocation } from "react-router-dom";
 const Product = () => {
     const { shoeImage, shoeName, brand, pId, price } = useLocation().state;
 
-    const [formData, setFormData] = React.useState();
+    const [shoeSize, setShoeSize] = React.useState();
 
     function handleChange(event) {
-        setFormData(parseInt(event.target.innerText));
+        setShoeSize(parseInt(event.target.innerText));
     }
     async function handleSubmit(event) {
         event.preventDefault();
+        if(!shoeSize){
+            toast.error("Select Shoe size ")
+            return
+        }
         try {
             const { data } = await axios.post(
                 "http://localhost:3000/api/cart/add",
                 {
                     pId,
                     price,
-                    size: formData,
+                    size: shoeSize,
                 },
                 {
                     headers: {
@@ -28,11 +32,23 @@ const Product = () => {
                     withCredentials: true,
                 }
             );
-            toast(data.message);
-            window.location.href = "/";
+            if(data.success){
+                
+                toast.success(data.message);
+                setTimeout(() => {
+                    window.location.href = "/";
+                }, 2000);
+            }
+            else
+            {
+                toast.error(data.message);
+                setTimeout(() => {
+                    window.location.href = "/signup";
+                }, 2000);
+            }
         } catch (error) {
             toast.error(error.response.data.message);
-            // console.error(error);
+            
         }
     }
     return (
@@ -105,7 +121,7 @@ const Product = () => {
                             <div className="flex items-center mt-2 mb-5">
                                 <button
                                     type="button"
-                                    className="bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600"
+                                    className={`${shoeSize === 7 ? 'bg-blue-500 text-white' : ''}bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600`}
                                     name="size"
                                     onClick={handleChange}
                                 >
@@ -113,7 +129,7 @@ const Product = () => {
                                 </button>
                                 <button
                                     type="button"
-                                    className="bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600 "
+                                    className={`${shoeSize === 8 ? 'bg-blue-500 text-white' : ''}bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600 `}
                                     name="size"
                                     onClick={handleChange}
                                 >
@@ -121,7 +137,7 @@ const Product = () => {
                                 </button>
                                 <button
                                     type="button"
-                                    className="bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600"
+                                    className={`${shoeSize === 9 ? 'bg-blue-500 text-white' : ''}bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600`}
                                     name="size"
                                     onClick={handleChange}
                                 >
@@ -129,7 +145,7 @@ const Product = () => {
                                 </button>
                                 <button
                                     type="button"
-                                    className="bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600"
+                                    className={`${shoeSize === 10 ? 'bg-blue-500 text-white' : ''}bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600`}
                                     name="size"
                                     onClick={handleChange}
                                 >
@@ -137,7 +153,7 @@ const Product = () => {
                                 </button>
                                 <button
                                     type="button"
-                                    className="bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600"
+                                    className={`${shoeSize === 11 ? 'bg-blue-500 text-white' : ''}bg-gray-300 darkk:bg-gray-700 text-gray-700 darkk:text-white py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 darkk:hover:bg-gray-600`}
                                     name="size"
                                     onClick={handleChange}
                                 >

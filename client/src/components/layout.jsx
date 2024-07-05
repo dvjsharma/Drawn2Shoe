@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./Navbar/navbar";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
+import Preloader from "./preloader/Preloader";
 
 const Layout = () => {
     return (
@@ -11,6 +12,7 @@ const Layout = () => {
                 <Outlet />
             </div>
             <Footer />
+            <Preloader />
         </>
     );
 };

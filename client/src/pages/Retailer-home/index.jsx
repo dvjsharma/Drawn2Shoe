@@ -1,7 +1,7 @@
 import React from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
-
+import './index.css'; 
 const Retailer_home = () => {
     const [formData, setFormData] = React.useState({
         shopname: "",

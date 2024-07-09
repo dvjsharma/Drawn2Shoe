@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
-import "./Signup.css"; // Import the custom CSS file for additional styles
+import "./Signup.css"; // Make sure this import is at the top
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -69,14 +68,14 @@ const Signup = () => {
     <div className="container mt-5">
       <div className="row justify-content-center">
         <div className="col-md-8 col-lg-6">
-          <div className="card signup-card shadow-lg border-light">
-            <div className="card-header text-center bg-primary text-white rounded-top">
-              <h3>Register</h3>
+          <div className="signup-card">
+            <div className="card-header">
+              <h3 className="text-2xl font-bold mb-6">Register</h3>
             </div>
-            <div className="card-body p-4">
+            <div className="card-body">
               <form onSubmit={registerf}>
-                <div className="form-group">
-                  <label htmlFor="name">Name</label>
+                <div className="form-group mb-4">
+                  <label htmlFor="name" className="text-gray-700 font-bold text-xl mb-2 block">Name</label>
                   <input
                     type="text"
                     className="form-control form-control-lg"
@@ -87,8 +86,8 @@ const Signup = () => {
                     required
                   />
                 </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
+                <div className="form-group mb-4">
+                  <label htmlFor="email" className="text-gray-700 font-bold text-xl mb-2 block">Email</label>
                   <input
                     type="email"
                     className="form-control form-control-lg"
@@ -99,8 +98,8 @@ const Signup = () => {
                     required
                   />
                 </div>
-                <div className="form-group">
-                  <label htmlFor="passwd">Password</label>
+                <div className="form-group mb-4">
+                  <label htmlFor="passwd" className="text-gray-700 font-bold text-xl mb-2 block">Password</label>
                   <input
                     type="password"
                     className="form-control form-control-lg"
@@ -111,8 +110,8 @@ const Signup = () => {
                     required
                   />
                 </div>
-                <div className="form-group">
-                  <label htmlFor="ppic">Profile Pic URL</label>
+                <div className="form-group mb-4">
+                  <label htmlFor="ppic" className="text-gray-700 font-bold text-xl mb-2 block">Profile Pic URL</label>
                   <input
                     type="text"
                     className="form-control form-control-lg"
@@ -122,24 +121,24 @@ const Signup = () => {
                     onChange={(e) => setPpic(e.target.value)}
                   />
                 </div>
-                <div className="form-row">
-                  <div className="form-group col-md-6">
-                    <label htmlFor="street">Street</label>
+                <div className="form-row mb-4 flex gap-4">
+                  <div className="form-group flex-1">
+                    <label htmlFor="street" className="text-gray-700 font-bold text-xl mb-2 block">Street</label>
                     <input
                       type="text"
-                      className="form-control form-control-lg"
+                      className="form-control"
                       id="street"
-                      placeholder="Enter your street address"
+                      placeholder="Enter your street"
                       value={street}
                       onChange={(e) => setStreet(e.target.value)}
                       required
                     />
                   </div>
-                  <div className="form-group col-md-6">
-                    <label htmlFor="city">City</label>
+                  <div className="form-group flex-1">
+                    <label htmlFor="city" className="text-gray-700 font-bold text-xl mb-2 block">City</label>
                     <input
                       type="text"
-                      className="form-control form-control-lg"
+                      className="form-control"
                       id="city"
                       placeholder="Enter your city"
                       value={city}
@@ -148,12 +147,12 @@ const Signup = () => {
                     />
                   </div>
                 </div>
-                <div className="form-row">
-                  <div className="form-group col-md-6">
-                    <label htmlFor="state">State</label>
+                <div className="form-row mb-4 flex gap-4">
+                  <div className="form-group flex-1">
+                    <label htmlFor="state" className="text-gray-700 font-bold text-xl mb-2 block">State</label>
                     <input
                       type="text"
-                      className="form-control form-control-lg"
+                      className="form-control"
                       id="state"
                       placeholder="Enter your state"
                       value={state}
@@ -161,11 +160,11 @@ const Signup = () => {
                       required
                     />
                   </div>
-                  <div className="form-group col-md-6">
-                    <label htmlFor="pincode">Pincode</label>
+                  <div className="form-group flex-1">
+                    <label htmlFor="pincode" className="text-gray-700 font-bold text-xl mb-2 block">Pincode</label>
                     <input
                       type="text"
-                      className="form-control form-control-lg"
+                      className="form-control"
                       id="pincode"
                       placeholder="Enter your pincode"
                       value={pincode}
@@ -174,34 +173,17 @@ const Signup = () => {
                     />
                   </div>
                 </div>
-                <div className="form-check mb-3">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="rememberMe"
-                    checked={rememberMe}
-                    onChange={() => setRememberMe(!rememberMe)}
-                  />
-                  <label className="form-check-label" htmlFor="rememberMe">
-                    Remember me
-                  </label>
+                <div className="btn-register-container">
+                  <button type="submit" className="btn-register">
+                    Register
+                  </button>
                 </div>
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-lg btn-block mt-3"
-                >
-                  Register
-                </button>
+                <div className="text-center mt-4">
+                  <p>
+                    Already have an account? <Link to="/login" className="text-white bg-green-600 px-4 py-2 rounded-md shadow-md hover:bg-green-800">Login here</Link>
+                  </p>
+                </div>
               </form>
-              <hr />
-              <div className="text-center">
-                <p>
-                  Already a member?{" "}
-                  <Link to="/login" className="btn btn-link">
-                    Login
-                  </Link>
-                </p>
-              </div>
             </div>
           </div>
         </div>

@@ -133,7 +133,7 @@ const Navbar = () => {
                     Login
                 </Link>
             </Menu>
-            <nav className="flex items-center py-4 px-6 text-md">
+            <nav className="flex items-center py-4 px-8 text-md">
                 <div className="flex gap-5 w-[30%] justify-center items-center max-lg:hidden">
                     <NavLink
                         to="/"

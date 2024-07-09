@@ -1,0 +1,85 @@
+.signup-card {
+    border-radius: 15px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  }
+  
+  .signup-card .card-header {
+    padding: 1.5rem;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    border-bottom: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  
+  .signup-card .card-body {
+    padding: 2rem;
+    background: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  
+  .signup-card .form-control {
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .signup-card .form-control-lg {
+    font-size: 1.1rem;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .signup-card .form-check {
+    margin-bottom: 1rem;
+  }
+  
+  .signup-card .form-check-label {
+    font-weight: 600;
+    color: #051627;
+  }
+  
+  .signup-card .btn {
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    box-shadow: 0 4px 6px rgba(1, 1, 1, 0.3);
+  }
+  
+  .btn {
+    background-color: limegreen; /* Green color for Register button */
+  }
+  
+  .signup-card .btn:hover {
+    background-color: #0056b3; /* Darker color for Register button on hover */
+  }
+  
+  .signup-card .form-group label {
+    font-weight: bold;
+    color: #495057;
+    font-size: 1.2rem; /* Example: Larger font size for labels */
+  }
+  
+  .signup-card h3 {
+    font-size: 2rem; /* Example: Larger font size for headers */
+    margin-bottom: 1.5rem; /* Example: Increased bottom margin */
+  }
+  
+  .signup-card .text-center p {
+    margin: 0;
+  }
+  
+  .signup-card .text-center p a {
+    text-decoration: none;
+    background-color: rgb(74, 181, 74); /* Green background for the Login button */
+    color: white; /* White text color for the Login button */
+    padding: 10px 15px; /* Add some padding */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slight shadow */
+  }
+  
+  .signup-card .text-center p a:hover {
+    background-color: #004d00; /* Darker green for the Login button on hover */
+    text-decoration: none; /* No underline on hover */
+  }
+  

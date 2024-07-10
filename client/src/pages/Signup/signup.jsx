@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
-import "./Signup.css"; // Make sure this import is at the top
+import "./Signup.css"; 
 
 const Signup = () => {
   const [name, setName] = useState("");

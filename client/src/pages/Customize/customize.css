@@ -1,20 +1,18 @@
-/* Customize.css */
-
 .customize-card {
     @apply rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 shadow-lg;
 }
 
 .customize-card .card-header {
-    @apply p-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-t-xl;
+    @apply p-4 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-t-xl;
     text-align: center; /* Directly applied text center alignment */
 }
 
 .customize-card .card-body {
-    @apply p-8 bg-white rounded-b-xl;
+    @apply p-4 bg-white rounded-b-xl;
 }
 
 .customize-card .form-control {
-    @apply mb-4 p-2 text-lg border border-gray-300 rounded-lg shadow-sm bg-gray-50;
+    @apply mb-4 p-0 text-lg border border-gray-300 rounded-lg shadow-sm bg-gray-50;
 }
 
 .customize-card .form-control-lg {
@@ -30,7 +28,13 @@
 }
 
 .customize-card .btn-submit {
-    @apply bg-blue-500 text-white rounded-lg px-4 py-2 shadow-md hover:bg-blue-700;
+    @apply bg-blue-500 text-white rounded-lg px-4 py-2 shadow-md;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.customize-card .btn-submit:hover {
+    @apply bg-blue-700;
+    transform: scale(1.05);
 }
 
 .customize-card .form-group label {
@@ -46,5 +50,5 @@
 }
 
 .customize-card .text-center p a {
-    @apply text-white bg-green-600 px-4 py-2 rounded-md shadow-md hover:bg-green-800;
+    @apply text-white bg-green-600 px-4 py-2 rounded-md shadow-md;
 }

@@ -4,46 +4,46 @@
     @apply rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 shadow-lg;
 }
 
-.retailer-home-card .card-header {
+.card-header {
     @apply p-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-t-xl text-center;
 }
 
-.retailer-home-card .card-body {
+.card-body {
     @apply p-8 bg-white rounded-b-xl;
 }
 
-.retailer-home-card .form-control {
+.form-control {
     @apply mb-4 px-4 py-3 text-lg border border-gray-300 rounded-lg shadow-sm bg-gray-50;
 }
 
-.retailer-home-card .form-control-lg {
+.form-control-lg {
     @apply text-lg;
 }
 
-.retailer-home-card .form-check {
+.form-check {
     @apply mb-4;
 }
 
-.retailer-home-card .form-check-label {
+.form-check-label {
     @apply text-gray-800 font-semibold;
 }
 
-.retailer-home-card .btn-submit {
+.btn-submit {
     @apply bg-blue-500 hover:bg-blue-700 text-white rounded-lg px-4 py-2 shadow-md;
 }
 
-.retailer-home-card .form-group label {
+.form-group label {
     @apply text-gray-700 font-bold text-xl mb-2 block;
 }
 
-.retailer-home-card h3 {
+h3 {
     @apply text-2xl font-bold mb-6;
 }
 
-.retailer-home-card .text-center p {
-    margin-bottom: 0; /* Directly applied margin bottom */
+.text-center p {
+    margin-bottom: 0; 
 }
 
-.retailer-home-card .text-center p a {
+.text-center p a {
     @apply text-white bg-green-600 px-4 py-2 rounded-md shadow-md hover:bg-green-800;
 }

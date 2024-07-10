@@ -1,4 +1,4 @@
-/* Signup.css */
+
 
 .signup-card {
     @apply rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 shadow-lg;
@@ -52,7 +52,6 @@
     @apply text-white bg-green-600 px-4 py-2 rounded-md shadow-md hover:bg-green-800;
 }
 
-/* Center the Register button in the form */
 .signup-card .btn-register-container {
     @apply flex justify-center mb-4;
 }

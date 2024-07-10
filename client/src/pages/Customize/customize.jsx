@@ -57,9 +57,9 @@ const Customize = () => {
                     </div>
                     <div className="card-body">
                         <form onSubmit={handleSubmit}>
-                            <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
-                                <div className="text-gray-600">
-                                    <p className="font-medium text-lg">Shoe Model</p>
+                            <div className="grid gap-4 text-sm grid-cols-1">
+                                <div className="form-group">
+                                    <label htmlFor="shoe_model">Shoe Model</label>
                                     <select
                                         name="shoe_model"
                                         id="shoe_model"
@@ -71,54 +71,51 @@ const Customize = () => {
                                     </select>
                                 </div>
 
-                                <div className="lg:col-span-2">
-                                    <div className="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
-                                        <div className="md:col-span-5">
-                                            <label htmlFor="shoe_size">Shoe Size</label>
-                                            <select
-                                                name="shoe_size"
-                                                id="shoe_size"
-                                                className="form-control"
-                                            >
-                                                <option>7</option>
-                                                <option>8</option>
-                                                <option>9</option>
-                                                <option>10</option>
-                                                <option>11</option>
-                                            </select>
-                                        </div>
-                                        <div className="md:col-span-5">
-                                            <label htmlFor="design_desc">Design Description</label>
-                                            <textarea
-                                                name="desc"
-                                                id="design_desc"
-                                                rows={"4"}
-                                                className="form-control"
-                                                placeholder="Describe your design..."
-                                                onChange={handleChange}
-                                                value={formData.desc}
-                                            ></textarea>
-                                        </div>
+                                <div className="form-group">
+                                    <label htmlFor="shoe_size">Shoe Size</label>
+                                    <select
+                                        name="shoe_size"
+                                        id="shoe_size"
+                                        className="form-control"
+                                    >
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                    </select>
+                                </div>
 
-                                        <div className="md:col-span-5">
-                                            <label htmlFor="design_img">Design Link</label>
-                                            <input
-                                                type="text"
-                                                name="link"
-                                                id="design_img"
-                                                className="form-control"
-                                                placeholder="Enter your design link..."
-                                                onChange={handleChange}
-                                                value={formData.link}
-                                            />
-                                        </div>
+                                <div className="form-group">
+                                    <label htmlFor="design_desc">Design Description</label>
+                                    <textarea
+                                        name="desc"
+                                        id="design_desc"
+                                        rows={"4"}
+                                        className="form-control"
+                                        placeholder="Describe your design..."
+                                        onChange={handleChange}
+                                        value={formData.desc}
+                                    ></textarea>
+                                </div>
 
-                                        <div className="md:col-span-5 text-right">
-                                            <button type="submit" className="btn-submit">
-                                                Submit
-                                            </button>
-                                        </div>
-                                    </div>
+                                <div className="form-group">
+                                    <label htmlFor="design_img">Design Link</label>
+                                    <input
+                                        type="text"
+                                        name="link"
+                                        id="design_img"
+                                        className="form-control"
+                                        placeholder="Enter your design link..."
+                                        onChange={handleChange}
+                                        value={formData.link}
+                                    />
+                                </div>
+
+                                <div className="form-group text-right">
+                                    <button type="submit" className="btn-submit">
+                                        Submit
+                                    </button>
                                 </div>
                             </div>
                         </form>

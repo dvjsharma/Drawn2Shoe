@@ -36,12 +36,6 @@ const Cart = () => {
         rzpay.open();
     }, [subtotal]);
 
-    useEffect(() => {
-        if (isLoaded) {
-            handlePayment();
-        }
-    }, [isLoaded, handlePayment]);
-
     let toDisplay = [];
     useEffect(() => {
         const fetchcart = async () => {
@@ -96,16 +90,16 @@ const Cart = () => {
                     <div className="rounded-lg md:w-2/3">
                         {cartitems
                             ? cartitems.map((item) => (
-                                  <Cartcard 
-                                      key={item.productId}
-                                      productId={item.productId}
-                                      productImage={item.productImage}
-                                      shoename={item.shoename}
-                                      shoeSize={item.shoeSize}
-                                      quantity={item.quantity}
-                                      price={item.price}
-                                  />
-                              ))
+                                <Cartcard
+                                    key={item.productId}
+                                    productId={item.productId}
+                                    productImage={item.productImage}
+                                    shoename={item.shoename}
+                                    shoeSize={item.shoeSize}
+                                    quantity={item.quantity}
+                                    price={item.price}
+                                />
+                            ))
                             : " "}
                     </div>
                     <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">

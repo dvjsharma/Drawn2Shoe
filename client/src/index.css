@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body {
+    font-family: "Source Serif 4", Georgia, serif;
+}
+.custom{
+    font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.categories{
+    font-family: "Helvetica Now Text Medium",Helvetica,Arial,sans-serif;
+}

@@ -1,0 +1,29 @@
+/* ------Custom Scrollbar------ */
+body {
+    padding: 0;
+    margin: 0; /* Also reset margin to avoid any default spacing */
+    overflow-x: hidden;
+}
+  
+::-webkit-scrollbar{
+    width: 16px;
+    height: 60px;
+}
+    
+::-webkit-scrollbar-track{
+    background-color: #000;
+}
+    
+::-webkit-scrollbar-thumb{
+    background: rgb(248,213,209);
+    background: linear-gradient(180deg, rgba(248,213,209,1) 36%, rgba(255,184,163,1) 92%);
+    width: 8px;
+    border-radius: 20px;
+    border: 4px solid #000;
+}
+    
+::-webkit-scrollbar-thumb:hover{
+    background: rgba(248, 213, 209, 0.913);
+    background: linear-gradient(180deg, rgba(248, 213, 209, 0.884) 36%, rgba(255, 184, 163, 0.833) 92%);
+}
+/* ------Custom Scrollbar------ */

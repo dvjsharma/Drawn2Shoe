@@ -14,6 +14,8 @@ import Retailer_home from "./pages/Retailer-home";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import ScrollToTop from "./components/ScrollToTop";
+import Wishlist from "./pages/Wishlist/wishlist";
+import './App.css'
 function App() {
     return (
         <BrowserRouter>
@@ -30,7 +32,9 @@ function App() {
                     <Route path="about" element={<About />} />
                     <Route path="product" element={<Product />} />
                     <Route path="cart" element={<Cart />} />
+                    <Route path="wishlist" element={<Wishlist />} />
                     <Route path="retailer" element={<Layout_retailer />}>
+                    
                         <Route index element={<Retailer_home />} />
                     </Route>
                 </Route>

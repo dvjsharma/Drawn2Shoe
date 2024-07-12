@@ -141,7 +141,7 @@ const Navbar = () => {
                         to="/"
                         className={({ isActive }) =>
                             isActive
-                                ? "nav-link-active underline nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10"
+                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 w-10"
                                 : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10"
                         }
                     >
@@ -151,7 +151,7 @@ const Navbar = () => {
                         to="categories"
                         className={({ isActive }) =>
                             isActive
-                                ? "nav-link-active underline nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 w-10 mr-8"
                                 : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
                         }
                     >
@@ -161,7 +161,7 @@ const Navbar = () => {
                         to="customize"
                         className={({ isActive }) =>
                             isActive
-                                ? "nav-link-active underline nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 w-10 mr-8"
                                 : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
                         }
                     >
@@ -171,7 +171,7 @@ const Navbar = () => {
                         to="shop"
                         className={({ isActive }) =>
                             isActive
-                                ? "nav-link-active underline nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 w-10 mr-8"
                                 : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
                         }
                     >

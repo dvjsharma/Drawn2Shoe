@@ -1,5 +1,5 @@
 import express from "express";
-import { connectDB } from "./data/database.js";
+import { PrismaClient } from "@prisma/client"; // Imported PrismaClient
 import { config } from "dotenv";
 import userrouter from "./routes/user.js";
 import productrouter from "./routes/products.js";
@@ -14,7 +14,7 @@ config({
     path: "config.env",
 });
 
-export const con = connectDB();
+export const prisma = new PrismaClient(); // Initialized PrismaClient
 
 app.use(cors({
     origin: true,

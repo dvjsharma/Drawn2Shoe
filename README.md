@@ -85,13 +85,53 @@ Ensure that `Node.js` and `MySQL` are installed on your machine.
 
 4. **Create a configuration file:**
 
-    Create a file named `config.env` in the server folder and simply copy the content of `.env.example` into it.
+    1.   Create a file named `config.env` in the server folder and simply copy the content of `.env.example` into it.
+     
+     
+    2.   Replace `user` and `password` from `DATABASE_URL="mysql://user:password@localhost:3306/drawn2shoe" ` with your  credential of mysql in the `.env` file.
 
-5. **Setting up the Database:**
+    
+<!-- 5. **Setting up the Database:**
 
     Open XAMPP (or any other SQL Db service) and start the Apache and MySQL services. Find and import the database from [here](https://drive.google.com/file/d/1qShqZpEGcdhVmZ7zzAar-tBwhPFomNWW/view?usp=sharing). Make sure to name it as `drawn2shoe`.
 
-    <i>NOTE: if you have custom configuration for XAMPP, don't forget to change Db config in `server/data/database.js`</i>
+    <i>NOTE: if you have custom configuration for XAMPP, don't forget to change Db config in `server/data/database.js`</i> -->
+
+5. **Setting up Prisma:**
+
+    - Install Prisma CLI globally:
+
+      ```bash
+      npm install -g prisma
+      ```
+
+    - Follow the interactive prompts to set up Prisma with your database.
+
+    - To generate Prisma client:
+
+      ```bash
+      cd ../server
+      npx prisma generate
+      ```
+
+    - To migrate the database:
+
+      ```bash
+      cd ../server
+      npx prisma migrate dev --name init
+      ```
+
+    - To seed the database :
+    
+      To populate initial datasets in the database:
+
+      ```bash
+      cd ../server
+      node prisma/seed.js
+      ```
+
+
+    - Follow the interactive prompts to set up Prisma with your database.
 
 6. **Running the Frontend:**
 

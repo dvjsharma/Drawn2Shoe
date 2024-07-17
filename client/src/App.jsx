@@ -15,6 +15,7 @@ import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import ScrollToTop from "./components/ScrollToTop";
 import './App.css'
+import Contact from './pages/Contact/Contact.jsx';
 function App() {
     return (
         <BrowserRouter>
@@ -34,6 +35,7 @@ function App() {
                     <Route path="retailer" element={<Layout_retailer />}>
                         <Route index element={<Retailer_home />} />
                     </Route>
+                    <Route path="contact" element={<Contact />} />
                 </Route>
             </Routes>
         </BrowserRouter>

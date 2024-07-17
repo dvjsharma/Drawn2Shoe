@@ -14,6 +14,7 @@ const Footer = () => {
                     <NavLink to="categories">Categories</NavLink>
                     <NavLink to="customize">Customize</NavLink>
                     <NavLink to="shop">Shop</NavLink>
+                    <NavLink to="/contact">Contact</NavLink>
                 </div>
                 <div className="flex items-center  w-[20%] gap-3 my-3 justify-end max-lg:justify-center">
                     <a

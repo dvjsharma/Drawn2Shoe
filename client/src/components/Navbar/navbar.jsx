@@ -136,7 +136,7 @@ const Navbar = () => {
                 </Link>
             </Menu>
             <nav className="flex items-center py-4 px-2 text-md">
-                <div className="flex gap-5 w-[30%] justify-center items-center max-lg:hidden">
+                <div className="flex gap-5 w-[30%] justify-center items-center max-lg:hidden px-9">
                     <NavLink
                         to="/"
                         className={({ isActive }) =>

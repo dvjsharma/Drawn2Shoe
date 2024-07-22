@@ -1,29 +1,35 @@
-import { con } from "../app.js";
+import { prisma } from "../app.js"; // Imported prisma
 
-const getcart = (req, res) => {
-    con.query(`select * FROM cart NATURAL JOIN product NATURAL JOIN shoe WHERE email='${req.user["email"]}'`, (err, result) => {
-        if (err) {
-            throw err;
-        }
-        return res.status(200).json({
-            success: true,
-            data: result
-        })
+const getcart = async (req, res) => {
+    const cartItems = await prisma.cart.findMany({ // Changed to use Prisma
+        where: { email: req.user.email },
+        include: {
+            product: true,
+        },
     });
-}
 
-const addcart = (req, res) => {
+    return res.status(200).json({
+        success: true,
+        data: cartItems,
+    });
+};
+
+const addcart = async (req, res) => {
     const { pId, price, size } = req.body;
-    con.query(`INSERT INTO cart VALUES (${pId}, '${req.user["email"]}', ${size}, 1)`, (err, result) => {
-        if (err) {
-            throw err;
-        }
-        return res.status(200).json({
-            success: true,
-            message: "Added to cart"
-        })
-    });
-}
 
+    await prisma.cart.create({ // Changed to use Prisma
+        data: {
+            productId: pId,
+            email: req.user.email,
+            shoeSize:size,
+            quantity: 1,
+        },
+    });
+
+    return res.status(200).json({
+        success: true,
+        message: "Added to cart",
+    });
+};
 
 export { getcart, addcart };

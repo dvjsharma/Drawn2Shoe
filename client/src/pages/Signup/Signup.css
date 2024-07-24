@@ -1,0 +1,57 @@
+
+
+.signup-card {
+    @apply rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 shadow-lg;
+}
+
+.signup-card .card-header {
+    @apply p-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-t-xl flex items-center justify-center; /* Center content horizontally and vertically */
+}
+
+.signup-card .card-body {
+    @apply p-8 bg-white rounded-b-xl;
+}
+
+.signup-card .form-control {
+    @apply mb-4 p-3 text-lg border border-gray-300 rounded-lg shadow-sm;
+}
+
+.signup-card .form-control-lg {
+    @apply text-lg;
+}
+
+.signup-card .form-check {
+    @apply mb-4;
+}
+
+.signup-card .form-check-label {
+    @apply text-gray-800 font-semibold;
+}
+
+.signup-card .btn-register {
+    @apply bg-green-600 text-white rounded-lg px-4 py-2 shadow-md hover:bg-green-800;
+}
+
+.signup-card .btn-login {
+    @apply text-white bg-green-600 px-4 py-2 rounded-md shadow-md hover:bg-green-800;
+}
+
+.signup-card .form-group label {
+    @apply text-gray-700 font-bold text-xl mb-2 block;
+}
+
+.signup-card h3 {
+    @apply text-2xl font-bold mb-6;
+}
+
+.signup-card .text-center {
+    @apply mb-0;
+}
+
+.signup-card .text-center p a {
+    @apply text-white bg-green-600 px-4 py-2 rounded-md shadow-md hover:bg-green-800;
+}
+
+.signup-card .btn-register-container {
+    @apply flex justify-center mb-4;
+}

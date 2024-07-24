@@ -1,0 +1,49 @@
+/* Retailer_home.css */
+
+.retailer-home-card {
+    @apply rounded-xl overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200 shadow-lg;
+}
+
+.card-header {
+    @apply p-6 bg-gradient-to-r from-blue-500 to-blue-700 text-white rounded-t-xl text-center;
+}
+
+.card-body {
+    @apply p-8 bg-white rounded-b-xl;
+}
+
+.form-control {
+    @apply mb-4 px-4 py-3 text-lg border border-gray-300 rounded-lg shadow-sm bg-gray-50;
+}
+
+.form-control-lg {
+    @apply text-lg;
+}
+
+.form-check {
+    @apply mb-4;
+}
+
+.form-check-label {
+    @apply text-gray-800 font-semibold;
+}
+
+.btn-submit {
+    @apply bg-blue-500 hover:bg-blue-700 text-white rounded-lg px-4 py-2 shadow-md;
+}
+
+.form-group label {
+    @apply text-gray-700 font-bold text-xl mb-2 block;
+}
+
+h3 {
+    @apply text-2xl font-bold mb-6;
+}
+
+.text-center p {
+    margin-bottom: 0; 
+}
+
+.text-center p a {
+    @apply text-white bg-green-600 px-4 py-2 rounded-md shadow-md hover:bg-green-800;
+}

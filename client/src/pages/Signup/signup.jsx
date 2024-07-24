@@ -1,295 +1,195 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import "./Signup.css"; 
 
 const Signup = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [passwd, setPasswd] = useState("");
-    const [ppic, setPpic] = useState("");
-    const [street, setStreet] = useState("");
-    const [city, setCity] = useState("");
-    const [state, setState] = useState("");
-    const [pincode, setPincode] = useState(0);
-    const [registered, setRegistered] = useState(false);
-    const registerf = async (e) => {
-        e.preventDefault();
-        if (
-            !(
-                name.length > 0 &&
-                email.length > 0 &&
-                passwd.length > 0 &&
-                street.length > 0 &&
-                city.length > 0 &&
-                state.length > 0 &&
-                pincode > 0
-            )
-        ) {
-            toast.error("All fields are necessary");
-            return;
-        }
-        try {
-            const { data } = await axios.post(
-                "http://localhost:3000/api/users/signup",
-                {
-                    name,
-                    email,
-                    ppic,
-                    passwd,
-                    street,
-                    city,
-                    state,
-                    pincode,
-                },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    withCredentials: true,
-                }
-            );
-            toast(data.message);
-            setRegistered(true);
-        } catch (error) {
-            toast.error(error.response.data.message);
-            console.error(error);
-        }
-    };
-    if (registered) {
-        return <Navigate replace to="/login" />;
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [passwd, setPasswd] = useState("");
+  const [ppic, setPpic] = useState("");
+  const [street, setStreet] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
+  const [registered, setRegistered] = useState(false);
+
+  const registerf = async (e) => {
+    e.preventDefault();
+    if (
+      !(
+        name.length > 0 &&
+        email.length > 0 &&
+        passwd.length > 0 &&
+        street.length > 0 &&
+        city.length > 0 &&
+        state.length > 0 &&
+        pincode.length > 0
+      )
+    ) {
+      toast.error("All fields are necessary");
+      return;
     }
-    return (
-        <>
-            <div className="">
-                <div className="p-8 lg:w-1/2 mx-auto">
-                    <div className="bg-gray-100 rounded-b-lg py-12 px-4 lg:px-24">
-                        <h1 className="text-center text-sm text-gray-500 font-semibold">
-                            REGISTER HERE!!!
-                        </h1>
+    try {
+      const { data } = await axios.post(
+        "http://localhost:3000/api/users/signup",
+        {
+          name,
+          email,
+          ppic,
+          passwd,
+          street,
+          city,
+          state,
+          pincode,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      toast(data.message);
+      setRegistered(true);
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.error(error);
+    }
+  };
 
-                        <form className="mt-6">
-                            <div className="relative mb-3">
-                                <input
-                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
-                                    id="username"
-                                    type="text"
-                                    placeholder="Name"
-                                    name="name"
-                                    required
-                                    onChange={(e) => {
-                                        setName(e.target.value);
-                                    }}
-                                />
-                                <div className="absolute left-0 inset-y-0 flex items-center">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-7 w-7 ml-3 text-gray-400 p-1"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div className="relative">
-                                <input
-                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
-                                    id="email"
-                                    type="text"
-                                    placeholder="Email"
-                                    name="email"
-                                    required
-                                    onChange={(e) => {
-                                        setEmail(e.target.value);
-                                    }}
-                                />
-                                <div className="absolute left-0 inset-y-0 flex items-center">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-7 w-7 ml-3 text-gray-400 p-1"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div className="relative mt-3">
-                                <input
-                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
-                                    id="password"
-                                    type="text"
-                                    placeholder="Password"
-                                    name="password"
-                                    onChange={(e) => {
-                                        setPasswd(e.target.value);
-                                    }}
-                                    required
-                                />
-                                <div className="absolute left-0 inset-y-0 flex items-center">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-7 w-7 ml-3 text-gray-400 p-1"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div className="relative mt-3">
-                                <input
-                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
-                                    id="password"
-                                    type="text"
-                                    placeholder="Profile Pic"
-                                    name="password"
-                                    onChange={(e) => {
-                                        setPpic(e.target.value);
-                                    }}
-                                />
-                                <div className="absolute left-0 inset-y-0 flex items-center">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-7 w-7 ml-3 text-gray-400 p-1"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div className="relative mt-3">
-                                <input
-                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
-                                    id="password"
-                                    type="text"
-                                    placeholder="Street"
-                                    name="password"
-                                    onChange={(e) => {
-                                        setStreet(e.target.value);
-                                    }}
-                                    required
-                                />
-                                <div className="absolute left-0 inset-y-0 flex items-center">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-7 w-7 ml-3 text-gray-400 p-1"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div className="relative mt-3">
-                                <input
-                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
-                                    id="password"
-                                    type="text"
-                                    placeholder="City"
-                                    name="password"
-                                    onChange={(e) => {
-                                        setCity(e.target.value);
-                                    }}
-                                />
-                                <div className="absolute left-0 inset-y-0 flex items-center">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-7 w-7 ml-3 text-gray-400 p-1"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div className="relative mt-3">
-                                <input
-                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
-                                    id="password"
-                                    type="text"
-                                    placeholder="State"
-                                    name="password"
-                                    onChange={(e) => {
-                                        setState(e.target.value);
-                                    }}
-                                />
-                                <div className="absolute left-0 inset-y-0 flex items-center">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-7 w-7 ml-3 text-gray-400 p-1"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <div className="relative mt-3">
-                                <input
-                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-                                    id="password"
-                                    type="number"
-                                    placeholder="Pincode"
-                                    name="password"
-                                    onChange={(e) => {
-                                        setPincode(e.target.value);
-                                    }}
-                                />
-                                <div className="absolute left-0 inset-y-0 flex items-center">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="h-7 w-7 ml-3 text-gray-400 p-1"
-                                        viewBox="0 0 20 20"
-                                        fill="currentColor"
-                                    >
-                                        <path d="M10 2a5 5 0 00-5 5v2a2 2 0 00-2 2v5a2 2 0 002 2h10a2 2 0 002-2v-5a2 2 0 00-2-2H7V7a3 3 0 015.905-.75 1 1 0 001.937-.5A5.002 5.002 0 0010 2z" />
-                                    </svg>
-                                </div>
-                            </div>
+  if (registered) {
+    return <Navigate replace to="/login" />;
+  }
 
-                            <div className="mt-4 flex items-center text-gray-500">
-                                <input
-                                    type="checkbox"
-                                    id="remember"
-                                    name="remember"
-                                    className="mr-3"
-                                />
-                                <label htmlFor="remember">Remember me</label>
-                            </div>
-                            <div className="flex items-center justify-center mt-8">
-                                <button
-                                    className="text-white py-2 px-4 uppercase rounded bg-indigo-500 hover:bg-indigo-600 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5"
-                                    onClick={(e) => {
-                                        registerf(e);
-                                    }}
-                                >
-                                    Sign Up
-                                </button>
-                            </div>
-                            <hr className="m-4" />
-                            <div className="flex items-center justify-center mt-5">
-                                <p className=" text-gray-500 ">
-                                    HAVE A ACCOUNT ?!
-                                </p>
-                                <Link
-                                    to="/Login"
-                                    className="text-white py-2 px-4 ml-3 uppercase rounded bg-green-400 hover:bg-green-500 shadow hover:shadow-lg font-medium transition transform  "
-                                >
-                                    Login
-                                </Link>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+  return (
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-8 col-lg-6">
+          <div className="signup-card">
+            <div className="card-header">
+              <h3 className="text-2xl font-bold mb-6">Register</h3>
             </div>
-        </>
-    );
+            <div className="card-body">
+              <form onSubmit={registerf}>
+                <div className="form-group mb-4">
+                  <label htmlFor="name" className="text-gray-700 font-bold text-xl mb-2 block">Name</label>
+                  <input
+                    type="text"
+                    className="form-control form-control-lg"
+                    id="name"
+                    placeholder="Enter your name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group mb-4">
+                  <label htmlFor="email" className="text-gray-700 font-bold text-xl mb-2 block">Email</label>
+                  <input
+                    type="email"
+                    className="form-control form-control-lg"
+                    id="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group mb-4">
+                  <label htmlFor="passwd" className="text-gray-700 font-bold text-xl mb-2 block">Password</label>
+                  <input
+                    type="password"
+                    className="form-control form-control-lg"
+                    id="passwd"
+                    placeholder="Enter your password"
+                    value={passwd}
+                    onChange={(e) => setPasswd(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group mb-4">
+                  <label htmlFor="ppic" className="text-gray-700 font-bold text-xl mb-2 block">Profile Pic URL</label>
+                  <input
+                    type="text"
+                    className="form-control form-control-lg"
+                    id="ppic"
+                    placeholder="Enter your profile pic URL"
+                    value={ppic}
+                    onChange={(e) => setPpic(e.target.value)}
+                  />
+                </div>
+                <div className="form-row mb-4 flex gap-4">
+                  <div className="form-group flex-1">
+                    <label htmlFor="street" className="text-gray-700 font-bold text-xl mb-2 block">Street</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="street"
+                      placeholder="Enter your street"
+                      value={street}
+                      onChange={(e) => setStreet(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="form-group flex-1">
+                    <label htmlFor="city" className="text-gray-700 font-bold text-xl mb-2 block">City</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="city"
+                      placeholder="Enter your city"
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="form-row mb-4 flex gap-4">
+                  <div className="form-group flex-1">
+                    <label htmlFor="state" className="text-gray-700 font-bold text-xl mb-2 block">State</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="state"
+                      placeholder="Enter your state"
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
+                      required
+                    />
+                  </div>
+                  <div className="form-group flex-1">
+                    <label htmlFor="pincode" className="text-gray-700 font-bold text-xl mb-2 block">Pincode</label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="pincode"
+                      placeholder="Enter your pincode"
+                      value={pincode}
+                      onChange={(e) => setPincode(e.target.value)}
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="btn-register-container">
+                  <button type="submit" className="btn-register">
+                    Register
+                  </button>
+                </div>
+                <div className="text-center mt-4">
+                  <p>
+                    Already have an account? <Link to="/login" className="text-white bg-green-600 px-4 py-2 rounded-md shadow-md hover:bg-green-800">Login here</Link>
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Signup;

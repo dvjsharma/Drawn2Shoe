@@ -10,7 +10,7 @@ const Home_retailers_comp = () => {
             <div className="text-[50px]">Join us today!</div>
             <div className="flex gap-4">
                 <Link to="/retailer">
-                    <button className="inline-block bg-black text-white rounded-full border-2 border-black px-4 pb-[6px] pt-2 text-[16px] font-medium leading-normal transition duration-150 ease-in-out hover:border-white hover:bg-white hover:text-black focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:text-[14px]">
+                    <button className="inline-block bg-black text-white rounded-full border-2 border-black px-4 pb-[6px] pt-2 text-[16px] font-medium leading-normal transition duration-150 ease-in-out hover:border-white hover:bg-white hover:text-black focus:bg-white focus:border-neutral-800 focus:text-neutral-800 focus:outline-none focus:ring-0 active:border-neutral-900 active:text-neutral-900 max-lg:text-[14px]">
                         Get started now
                     </button>
                 </Link>

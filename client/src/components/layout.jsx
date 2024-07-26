@@ -3,6 +3,7 @@ import Navbar from "./Navbar/navbar";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
 import Preloader from "./Preloader/Preloader";
+import BackToTop from "./BackToTop/BackToTop";
 
 const Layout = () => {
     return (
@@ -13,6 +14,7 @@ const Layout = () => {
             </div>
             <Footer />
             <Preloader />
+            <BackToTop/>
         </>
     );
 };

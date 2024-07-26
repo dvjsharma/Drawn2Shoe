@@ -83,6 +83,38 @@ const getMyProfile = (req, res) => {
     });
 };
 
+const updateUserProfile = async (req, res) => {
+    const { name, street, city, state, pincode } = req.body;
+    const email = req.user.email;
+
+    try {
+        const updatedUser = await prisma.mainuser.update({
+            where: { email },
+            data: {
+                name,
+                street,
+                city,
+                state,
+                pincode: parseInt(pincode),
+            },
+        });
+
+        res.status(200).json({
+            success: true,
+            message: "Profile updated successfully",
+            user: updatedUser,
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error"
+        });
+    }
+};
+
+
+
 const registerdesigner = async (req, res) => {
     const { description, portfoliolink } = req.body;
 
@@ -147,4 +179,4 @@ const registerretailer = async (req, res) => {
     }
 };
 
-export { login, signup, getMyProfile, registerdesigner, registerretailer };
+export { login, signup, getMyProfile, updateUserProfile, registerdesigner, registerretailer };

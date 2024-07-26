@@ -1,53 +1,146 @@
-import { con } from "../app.js";
+import { PrismaClient } from "@prisma/client";
 
-const getproducts = (req, res) => {
-    con.query(`select P.shoeId as categoryId, productId as pId, S.shoename as shoeName, S1.supplierName as brand, price, P.productImage as shoeImage from product P natural join shoe S natural join supplier S1`, (err, result) => {
-        if (err) {
-            throw err;
-        }
-        return res.status(200).json({
-            success: true,
-            data: result
-        })
-    });
-}
+const prisma = new PrismaClient();
 
-const getproductbyid = (req, res) => {
-    const { productId } = req.body;
-    con.query(`select P.shoeId as categoryId, productId as pId, S.shoename as shoeName, S1.supplierName as brand, price, P.productImage as shoeImage from product P natural join shoe S natural join supplier S1 WHERE productId ='${productId}' `, (err, result) => {
-        if (err) {
-            throw err;
-        }
-        return res.status(200).json({
-            success: true,
-            data: result
-        })
-    });
-}
+const getproducts = async (req, res) => {
+    try {
+        const products = await prisma.product.findMany({
+            select: {
+                shoeId: true,
+                productId: true,
+                shoe: {
+                    select: {
+                        shoename: true,
+                        supplier: {
+                            select: {
+                                supplierName: true
+                            }
+                        },
+                        price: true,
+                        shoeImage: true
+                    }
+                },
+            }
+        });
 
-const getcategories = (req, res) => {
-    con.query(`select S1.shoeId as categoryId, S1.shoename, S2.supplierName as brand, S1.shoeImage from shoe S1 NATURAL JOIN supplier S2`, (err, result) => {
-        if (err) {
-            throw err;
-        }
+        const result = products.map(product => ({
+            categoryId: product.shoeId,
+            pId: product.productId,
+            shoeName: product.shoe.shoename,
+            brand: product.shoe.supplier.supplierName,
+            price: product.shoe.price,
+            shoeImage: product.shoe.shoeImage
+        }));
+
         return res.status(200).json({
             success: true,
             data: result
         });
-    })
-}
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error"
+        });
+    }
+};
 
-const createcustomproduct = (req, res) => {
+const getproductbyid = async (req, res) => {
+    const { productId } = req.body;
+
+    try {
+        const product = await prisma.product.findUnique({
+            where: { productId },
+            select: {
+                shoeId: true,
+                productId: true,
+                shoe: {
+                    select: {
+                        shoename: true,
+                        supplier: {
+                            select: {
+                                supplierName: true
+                            }
+                        },
+                        price: true,
+                        shoeImage: true
+                    }
+                },
+            }
+        });
+
+        const result = {
+            categoryId: product.shoeId,
+            pId: product.productId,
+            shoeName: product.shoe.shoename,
+            brand: product.shoe.supplier.supplierName,
+            price: product.shoe.price,
+            shoeImage: product.shoe.shoeImage
+        };
+
+        return res.status(200).json({
+            success: true,
+            data: result
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error"
+        });
+    }
+};
+
+const getcategories = async (req, res) => {
+    try {
+        const categories = await prisma.shoe.findMany({
+            include: {
+                supplier: true
+            }
+        });
+
+        const result = categories.map(category => ({
+            categoryId: category.shoeId,
+            shoename: category.shoename,
+            brand: category.supplier.supplierName,
+            shoeImage: category.shoeImage
+        }));
+
+        return res.status(200).json({
+            success: true,
+            data: result
+        });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error"
+        });
+    }
+};
+
+const createcustomproduct = async (req, res) => {
     const { description, image } = req.body;
-    con.query(`INSERT INTO design (description, image) VALUES ('${description}', '${image}') `, (err, result) => {
-        if (err) {
-            throw err;
-        }
+
+    try {
+        await prisma.design.create({
+            data: {
+                description,
+                image,
+            },
+        });
+
         return res.status(200).json({
             success: true,
             message: "Custom design created"
         });
-    })
-}
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: "Internal Server Error"
+        });
+    }
+};
 
 export { getproducts, getcategories, getproductbyid, createcustomproduct };

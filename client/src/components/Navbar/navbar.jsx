@@ -7,9 +7,9 @@ import logo2 from "../../assets/shoelogo.jpg";
 import axios from "axios";
 import {useDispatch, useSelector} from "react-redux";
 import { logOut, setUsername } from "../../redux/auth-slice";
+import Translate from "../Translator/Translator";
 
 const Navbar = () => {
-
     const [user, setUser] = useState();
     const dispatch = useDispatch();
     const logged = useSelector((state)=>state.auth.value.isAuth);
@@ -135,14 +135,14 @@ const Navbar = () => {
                     Login
                 </Link>
             </Menu>
-            <nav className="flex items-center py-4 px-2 text-md">
+            <nav className="flex items-center py-4 px-2 text-md justify-between w-full">
                 <div className="flex gap-5 w-[30%] justify-center items-center max-lg:hidden">
                     <NavLink
                         to="/"
                         className={({ isActive }) =>
                             isActive
-                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 w-10"
-                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10"
+                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 px-2 ml-3"
+                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold px-2 ml-3"
                         }
                     >
                         Home
@@ -151,8 +151,8 @@ const Navbar = () => {
                         to="categories"
                         className={({ isActive }) =>
                             isActive
-                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 w-10 mr-8"
-                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 px-3"
+                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold px-3"
                         }
                     >
                         Categories
@@ -161,8 +161,8 @@ const Navbar = () => {
                         to="customize"
                         className={({ isActive }) =>
                             isActive
-                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 w-10 mr-8"
-                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 px-3"
+                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold px-3"
                         }
                     >
                         Customize
@@ -171,14 +171,15 @@ const Navbar = () => {
                         to="shop"
                         className={({ isActive }) =>
                             isActive
-                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 w-10 mr-8"
-                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold w-10 mr-8"
+                                ? "nav-link-active font-bold nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 px-3"
+                                : "nav-link bg-white-500 hover:bg-white-600 active:bg-white-700 focus:outline-none focus:ring-white-300 hover:font-bold px-3"
                         }
                     >
                         Shop
                     </NavLink>
                 </div>
-                <div className="flex w-[69%] text-left justify-center items-center max-lg:w-full max-lg:justify-start">
+                <Translate />
+                <div className="flex w-[30%] text-left justify-center items-center max-lg:w-full max-lg:justify-start">
                     <div className="lg:hidden">
                         <Divide
                             size={20}

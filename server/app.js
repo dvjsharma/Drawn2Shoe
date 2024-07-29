@@ -6,7 +6,7 @@ import productrouter from "./routes/products.js";
 import cors from 'cors';
 import cookieParser from "cookie-parser";
 import cartrouter from './routes/cart.js';
-
+import wishlistrouter from "./routes/wishlist.js";
 export const app = express();
 
 
@@ -27,3 +27,4 @@ app.use(cookieParser());
 app.use("/api/users", userrouter);
 app.use("/api/products", productrouter);
 app.use("/api/cart", cartrouter);
+app.use("/api/user",wishlistrouter);

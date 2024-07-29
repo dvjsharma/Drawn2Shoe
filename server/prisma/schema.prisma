@@ -54,6 +54,17 @@ model Mainuser {
   designer   Designer?
   orders     Orders[]
   retailer   Retailer?
+  wishlist   Wishlist[]
+}
+
+model Wishlist {
+  id        Int       @id @default(autoincrement())
+  userId    String
+  productId Int
+  product   Product   @relation(fields: [productId], references: [productId])
+  user      Mainuser  @relation(fields: [userId], references: [email])
+
+  @@unique([userId, productId])
 }
 
 model Orders {
@@ -79,6 +90,7 @@ model Product {
   productImage String?
   cart         Cart[]
   orders       Orders[]
+  wishlist     Wishlist[]
   design       Design? @relation(fields: [designId], references: [designId])
   shoe         Shoe?   @relation(fields: [shoeId], references: [shoeid])
 }

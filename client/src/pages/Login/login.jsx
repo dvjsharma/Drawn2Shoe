@@ -1,8 +1,8 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
-import {useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { logIn } from "../../redux/auth-slice";
 
 const Login = () => {
@@ -10,6 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const [authenticated, setAuthenticated] = useState(false);
     const dispatch = useDispatch();
+
     const loginf = async (e, email, password) => {
         e.preventDefault();
         if (!email && !password)
@@ -30,17 +31,18 @@ const Login = () => {
                     withCredentials: true,
                 }
             );
-            dispatch(logIn({email:email}));
+            dispatch(logIn({ email: email }));
             toast(data.message);
             setAuthenticated(true);
         } catch (error) {
             toast.error(error.response.data.message);
-            // console.error(error);
         }
     };
+
     if (authenticated) {
         return <Navigate replace to="/" />;
     }
+
     return (
         <>
             <div className="">
@@ -56,7 +58,7 @@ const Login = () => {
                             </div>
                             <div className="relative">
                                 <input
-                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
+                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600 transition rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
                                     id="email"
                                     type="text"
                                     placeholder="Email"
@@ -77,9 +79,9 @@ const Login = () => {
                             </div>
                             <div className="relative mt-3">
                                 <input
-                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600  transition  rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
+                                    className="appearance-none border pl-12 border-gray-100 shadow-sm focus:shadow-md focus:placeholder-gray-600 transition rounded-md w-full py-3 text-gray-600 leading-tight focus:outline-none focus:ring-gray-600 focus:shadow-outline"
                                     id="username"
-                                    type="text"
+                                    type="password"
                                     placeholder="Password"
                                     name="password"
                                     onChange={(e) => {
@@ -117,14 +119,22 @@ const Login = () => {
                                     Sign in
                                 </button>
                             </div>
+                            <div className="flex items-center justify-center mt-4">
+                                <Link
+                                    to="/forgot-password"
+                                    className="text-indigo-500 hover:underline"
+                                >
+                                    Forgot Password?
+                                </Link>
+                            </div>
                             <hr className="m-4" />
                             <div className="flex items-center justify-center mt-5">
-                                <span className=" text-gray-500">
-                                    DO NOT HAVE A ACCOUNT ?!
-                                </span>{" "}
+                                <span className="text-gray-500">
+                                    DO NOT HAVE AN ACCOUNT?!
+                                </span>
                                 <Link
                                     to="/signup"
-                                    className="text-white py-2 px-4 ml-3 uppercase rounded bg-green-400 hover:bg-green-500 shadow hover:shadow-lg font-medium transition transform  "
+                                    className="text-white py-2 px-4 ml-3 uppercase rounded bg-green-400 hover:bg-green-500 shadow hover:shadow-lg font-medium transition transform"
                                 >
                                     REGISTER
                                 </Link>

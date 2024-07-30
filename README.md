@@ -89,7 +89,9 @@ Ensure that `Node.js` and `MySQL` are installed on your machine.
      
      
     2.   Replace `user` and `password` from `DATABASE_URL="mysql://user:password@localhost:3306/drawn2shoe" ` with your  credential of mysql in the `.env` file.
-
+    
+    3.   Replace `yourmail@gmail.com` and `your_password` with a actual Email address and Password. Make sure your two-factor-authentication is on for this mail. This address would be used to send reset links for forgot password. (This step is only necessary if you working on forgot password else leave it as it is.)
+    
     
 <!-- 5. **Setting up the Database:**
 

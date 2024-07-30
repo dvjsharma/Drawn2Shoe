@@ -1,5 +1,6 @@
 import express from "express";
 import { login, signup, getMyProfile,updateUserProfile, registerdesigner, registerretailer } from "../controllers/user.js";
+import { requestPasswordReset, resetPassword } from "../controllers/forgotPassword.js";
 import { isAuthenticated } from "../middlewares/auth.js";
 
 const router = express.Router();
@@ -8,6 +9,10 @@ const router = express.Router();
 router.post("/login", login);
 
 router.post("/signup", signup);
+
+router.post("/forgot-password", requestPasswordReset);
+
+router.post("/reset-password/:token/:id", resetPassword);
 
 router.get("/me", isAuthenticated, getMyProfile);
 

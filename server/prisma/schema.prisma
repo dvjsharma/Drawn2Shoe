@@ -1,0 +1,123 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+model Cart {
+  productId Int
+  email     String
+  shoeSize  Int
+  quantity  Int
+  product   Product @relation(fields: [productId], references: [productId])
+  mainuser  Mainuser @relation(fields: [email], references: [email])
+
+  @@id([productId, email])
+}
+
+model Design {
+  designId    Int    @id @default(autoincrement())
+  description String
+  image       String?
+  product     Product[]
+}
+
+model Designer {
+  email         String  @id
+  description   String?
+  portfolioLink String
+  mainuser      Mainuser @relation(fields: [email], references: [email])
+}
+
+model Mainuser {
+  name       String
+  email      String  @id
+  profilepic String?
+  passwd     String
+  street     String
+  city       String
+  state      String
+  pincode    Int
+  cart       Cart[]
+  designer   Designer?
+  orders     Orders[]
+  retailer   Retailer?
+  wishlist   Wishlist[]
+}
+
+model Wishlist {
+  id        Int       @id @default(autoincrement())
+  userId    String
+  productId Int
+  product   Product   @relation(fields: [productId], references: [productId])
+  user      Mainuser  @relation(fields: [userId], references: [email])
+
+  @@unique([userId, productId])
+}
+
+model Orders {
+  orderId   Int
+  productId Int
+  email     String
+  shoeSize  Int
+  quantity  Int
+  orderTime DateTime @default(now())
+  product   Product  @relation(fields: [productId], references: [productId])
+  mainuser  Mainuser @relation(fields: [email], references: [email])
+
+  @@id([orderId, productId])
+  @@index([email])
+}
+
+
+model Product {
+  productId    Int     @id @default(autoincrement())
+  shoeId       Int?
+  designId     Int?
+  category     String  @default("pre-designed")
+  productImage String?
+  cart         Cart[]
+  orders       Orders[]
+  wishlist     Wishlist[]
+  design       Design? @relation(fields: [designId], references: [designId])
+  shoe         Shoe?   @relation(fields: [shoeId], references: [shoeid])
+}
+
+model Retailer {
+  email           String @id
+  shopName        String
+  contactNumber   Int
+  shopaddressLine1 String?
+  shopCity        String?
+  shopPincode     Int?
+  mainuser        Mainuser @relation(fields: [email], references: [email])
+}
+
+model Shoe {
+  shoeid    Int     @id @default(autoincrement())
+  shoename  String
+  supplierId Int
+  price     Float
+  shoeImage String?
+  product   Product[]
+  supplier  Supplier @relation(fields: [supplierId], references: [supplierId])
+}
+
+model Supplier {
+  supplierId   Int    @id @default(autoincrement())
+  supplierName String
+  location     String
+  shoe         Shoe[]
+}

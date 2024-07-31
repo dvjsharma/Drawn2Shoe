@@ -14,6 +14,8 @@ import Retailer_home from "./pages/Retailer-home";
 import Product from "./pages/Product";
 import Cart from "./pages/Cart";
 import ScrollToTop from "./components/ScrollToTop";
+import UserProfile from "./pages/User-profile";
+import PrivateRoute from "./components/PrivateRoute";
 import './App.css'
 import Contact from './pages/Contact/Contact.jsx';
 function App() {
@@ -23,6 +25,11 @@ function App() {
             <Routes>
                 <Route path="/" element={<Layout />}>
                     <Route index element={<Home />} />
+                    <Route path="/profile" element={
+                        <PrivateRoute>
+                            <UserProfile />
+                        </PrivateRoute>
+                    } />
                     <Route path="categories" element={<Categories />} />
                     <Route path="customize" element={<Customize />} />
                     <Route path="shop" element={<Shop />} />
@@ -31,7 +38,11 @@ function App() {
                     <Route path="designers" element={<Designer_home />} />
                     <Route path="about" element={<About />} />
                     <Route path="product" element={<Product />} />
-                    <Route path="cart" element={<Cart />} />
+                    <Route path="cart" element={
+                        <PrivateRoute>
+                            <Cart />
+                        </PrivateRoute>
+                    } />
                     <Route path="retailer" element={<Layout_retailer />}>
                         <Route index element={<Retailer_home />} />
                     </Route>

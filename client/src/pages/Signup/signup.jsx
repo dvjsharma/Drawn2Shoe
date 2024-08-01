@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { auth } from '../../firebase';
 
 const Signup = () => {
     const [name, setName] = useState("");
@@ -14,7 +16,22 @@ const Signup = () => {
     const [state, setState] = useState("");
     const [pincode, setPincode] = useState(0);
     const [registered, setRegistered] = useState(false);
+
+    const handleGoogle = async (e) => {
+        e.preventDefault();  
+        try {
+          const provider = new GoogleAuthProvider();
+          const result = await signInWithPopup(auth, provider);
+          console.log(result)
+          setRegistered(true);
+        } catch (error) {
+          console.log(error);
+        }
+      }
     const registerf = async (e) => {
+
+     
+
         e.preventDefault();
         if (
             !(
@@ -272,6 +289,16 @@ const Signup = () => {
                                     Sign Up
                                 </button>
                             </div>
+                            <hr className="m-4" /> 
+                            <div className="flex items-center justify-center border-2 border-gray-300 p-3 rounded-md"> 
+                            <div> <img
+                            src="https://freelogopng.com/images/all_img/1657955079google-icon-png.png"
+                            alt="Google icon" className="h-7 mr-3"
+                            
+                          /></div>
+                           <div>  <button onClick={handleGoogle}> Login with Google </button></div>
+               
+                             </div>
                             <hr className="m-4" />
                             <div className="flex items-center justify-center mt-5">
                                 <p className=" text-gray-500 ">

@@ -5,11 +5,29 @@ import toast from "react-hot-toast";
 import {useDispatch} from "react-redux";
 import { logIn } from "../../redux/auth-slice";
 
+
+import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { auth } from '../../firebase';
+
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [authenticated, setAuthenticated] = useState(false);
     const dispatch = useDispatch();
+    const handleGoogle = async (e) => {
+        e.preventDefault();  
+        try {
+          const provider = new GoogleAuthProvider();
+          const result = await signInWithPopup(auth, provider);
+          console.log(result)
+          setAuthenticated(true);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    
+
+
     const loginf = async (e, email, password) => {
         e.preventDefault();
         if (!email && !password)
@@ -18,7 +36,7 @@ const Login = () => {
         if (!password) return toast.error("Please enter password");
         try {
             const { data } = await axios.post(
-                "http://localhost:3000/api/users/login",
+                "http://localhost:3000/api/users/login", 
                 {
                     email,
                     passwd: password,
@@ -117,7 +135,19 @@ const Login = () => {
                                     Sign in
                                 </button>
                             </div>
-                            <hr className="m-4" />
+           
+
+                            <hr className="m-4" /> 
+                            <div className="flex items-center justify-center border-2 border-gray-300 p-3 rounded-md"> 
+                            <div> <img
+                            src="https://freelogopng.com/images/all_img/1657955079google-icon-png.png"
+                            alt="Google icon" className="h-7 mr-3"
+                            
+                          /></div>
+                           <div>  <button onClick={handleGoogle}> Login with Google </button></div>
+               
+                             </div>
+                             <hr className="m-4" /> 
                             <div className="flex items-center justify-center mt-5">
                                 <span className=" text-gray-500">
                                     DO NOT HAVE A ACCOUNT ?!

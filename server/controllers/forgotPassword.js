@@ -27,7 +27,7 @@ export const requestPasswordReset = async (req, res) => {
         }
     });
 
-    const resetUrl = `http://192.168.93.236:5173/reset-password/${token}/${passwd.id}`;
+    const resetUrl = `http://localhost:5173/reset-password/${token}/${passwd.id}`;
     await sendResetEmail(email, resetUrl);
 
     res.status(200).json({ message: "Password reset link has been sent to your email" });

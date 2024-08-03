@@ -17,18 +17,6 @@ async function main() {
     await prisma.supplier.deleteMany({});
 
     
-  // Insert data for the Design table
-  await prisma.design.createMany({
-    data: [
-      { designId: 1, description: 'My one of the best artworks!!', image: 'https://shopzapatopia.com/cdn/shop/products/image_d080f6fe-2b6e-4cfa-9598-45d5f775c945.jpg?v=1675780288&width=823' },
-      { designId: 2, description: 'My one of the best artworks!!', image: 'https://i.etsystatic.com/7731983/r/il/f6f907/5513082597/il_794xN.5513082597_m5yv.jpg' },
-      { designId: 3, description: 'My one of the best artworks!!', image: 'https://images.tshirtslowprice.com/wp-content/uploads/2022/07/14091149/Personalised-One-Piece-Art-Custom-Crocs-Crocband-Shoes-600x600.jpg' },
-      { designId: 4, description: 'My one of the best artworks!!', image: 'https://i.etsystatic.com/32325243/r/il/76e732/3471760499/il_794xN.3471760499_o0mj.jpg' },
-      { designId: 5, description: 'My one of the best artworks!!', image: 'https://i.etsystatic.com/38858364/r/il/e4edf3/4701581789/il_794xN.4701581789_o0j5.jpg' },
-      { designId: 6, description: 'My one of the best artworks!!', image: 'https://i.etsystatic.com/38858364/r/il/6f647c/4657056636/il_794xN.4657056636_fuef.jpg' },
-      { designId: 7, description: 'My one of the best artworks!!', image: 'https://www.highsnobiety.com/static-assets/dato/1663198452-comme-des-garcons-play-converse-chuck-70-heart-print-release-date-price-01.jpg' },
-    ],
-  });
 
   // Insert data for the Mainuser table
   await prisma.mainuser.create({
@@ -42,6 +30,19 @@ async function main() {
       state: '/state',
       pincode: 111111,
     },
+  });
+
+  // Insert data for the Design table
+  await prisma.design.createMany({
+    data: [
+      { designId: 1,userId:'admin@drawn2shoe.com', shoeModel:"Crocs",shoeSize: 8, description: 'My one of the best artworks!!', image: 'https://shopzapatopia.com/cdn/shop/products/image_d080f6fe-2b6e-4cfa-9598-45d5f775c945.jpg?v=1675780288&width=823' },
+      { designId: 2,userId:'admin@drawn2shoe.com', shoeModel:"Crocs",shoeSize: 10, description: 'My one of the best artworks!!', image: 'https://i.etsystatic.com/7731983/r/il/f6f907/5513082597/il_794xN.5513082597_m5yv.jpg' },
+      { designId: 3,userId:'admin@drawn2shoe.com', shoeModel:"Converse cdg",shoeSize: 7, description: 'My one of the best artworks!!', image: 'https://images.tshirtslowprice.com/wp-content/uploads/2022/07/14091149/Personalised-One-Piece-Art-Custom-Crocs-Crocband-Shoes-600x600.jpg' },
+      { designId: 4,userId:'admin@drawn2shoe.com', shoeModel:"Crocs",shoeSize: 8, description: 'My one of the best artworks!!', image: 'https://i.etsystatic.com/32325243/r/il/76e732/3471760499/il_794xN.3471760499_o0mj.jpg' },
+      { designId: 5,userId:'admin@drawn2shoe.com', shoeModel:"Converse cdg",shoeSize: 9, description: 'My one of the best artworks!!', image: 'https://i.etsystatic.com/38858364/r/il/e4edf3/4701581789/il_794xN.4701581789_o0j5.jpg' },
+      { designId: 6,userId:'admin@drawn2shoe.com', shoeModel:"Airforce",shoeSize: 8, description: 'My one of the best artworks!!', image: 'https://i.etsystatic.com/38858364/r/il/6f647c/4657056636/il_794xN.4657056636_fuef.jpg' },
+      { designId: 7,userId:'admin@drawn2shoe.com', shoeModel:"Converse cdg",shoeSize: 9, description: 'My one of the best artworks!!', image: 'https://www.highsnobiety.com/static-assets/dato/1663198452-comme-des-garcons-play-converse-chuck-70-heart-print-release-date-price-01.jpg' },
+    ],
   });
 
   // Insert data for the Supplier table

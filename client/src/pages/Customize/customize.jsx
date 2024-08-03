@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
@@ -6,7 +6,27 @@ const Customize = () => {
     const [formData, setFormData] = React.useState({
         desc: "",
         link: "",
+        shoeModel: "Crocs", 
+        shoeSize: "7",  
     });
+    const [user, setUser] = React.useState(null);
+
+   
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const { data } = await axios.get("http://localhost:3000/api/users/me", {
+                    withCredentials: true,
+                });
+                setUser(data.user);
+            } catch (error) {
+                toast.error("Please log in to customize products");
+                window.location.href = "/login"; 
+            }
+        };
+
+        fetchUser();
+    }, []);
 
     function handleChange(event) {
         const { name, value, type, checked } = event.target;
@@ -17,6 +37,7 @@ const Customize = () => {
             };
         });
     }
+
     async function handleSubmit(event) {
         event.preventDefault();
         if (!formData.desc && !formData.link)
@@ -29,6 +50,9 @@ const Customize = () => {
                 {
                     description: formData.desc,
                     image: formData.link,
+                    shoeModel: formData.shoeModel, 
+                    shoeSize: formData.shoeSize,    
+                    userId: user.email, 
                 },
                 {
                     headers: {
@@ -41,9 +65,10 @@ const Customize = () => {
             window.location.href = "/";
         } catch (error) {
             toast.error(error.response.data.message);
-            // console.error(error);
+            
         }
     }
+
     return (
         <div>
             <div className="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
@@ -67,9 +92,11 @@ const Customize = () => {
                                                 Shoe Model
                                             </label>
                                             <select
-                                                name="shoe_model"
+                                                name="shoeModel" 
                                                 id="shoe_model"
                                                 className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                                                onChange={handleChange}
+                                                value={formData.shoeModel} 
                                             >
                                                 <option>Crocs</option>
                                                 <option>Air Force 1</option>
@@ -81,9 +108,11 @@ const Customize = () => {
                                                 Shoe Size
                                             </label>
                                             <select
-                                                name="shoe_size"
+                                                name="shoeSize" 
                                                 id="shoe_size"
                                                 className="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+                                                onChange={handleChange}
+                                                value={formData.shoeSize} 
                                             >
                                                 <option>7</option>
                                                 <option>8</option>

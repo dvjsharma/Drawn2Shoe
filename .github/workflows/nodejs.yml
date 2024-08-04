@@ -1,0 +1,64 @@
+name: 'Lint and Type Check'
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: "Log level"
+        required: true
+        default: "warning"
+        type: choice
+        options:
+          - info
+          - warning
+          - debug
+      tags:
+        description: "Test scenario tags"
+        required: false
+        
+        type: boolean
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install client dependencies
+        run: |
+          npm install --prefix client/
+
+      - name: Run client lint
+        run: |
+          npm run lint --prefix client/ --fix
+
+      - name: Run client type checks
+        run: |
+          npm run type-checks --prefix client/
+
+      - name: Install server dependencies
+        run: |
+          npm install --prefix server/
+
+      - name: Run server lint
+        run: |
+          npm run lint --prefix server/ --fix
+
+      - name: Run server type checks
+        run: |
+          npm run type-checks --prefix server/
+
+      - name: Run PR title checker
+        uses: thehanimo/pr-title-checker@v1.3.7
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          pass_on_octokit_error: false
+          configuration_path: '.github/pr-title-checker.json'

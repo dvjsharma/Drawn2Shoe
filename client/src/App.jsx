@@ -6,6 +6,8 @@ import Categories from "./pages/Categories/categories";
 import Customize from "./pages/Customize/customize";
 import Shop from "./pages/Shop/shop";
 import Login from "./pages/Login/login";
+import ResetPassword from "./components/Reset-Password";
+import ForgotPassword from "./components/Forgot-Password";
 import Signup from "./pages/Signup/signup";
 import Layout_retailer from "./components/layout-retailer";
 import Designer_home from "./pages/Designers";
@@ -33,6 +35,8 @@ function App() {
                     <Route path="customize" element={<Customize />} />
                     <Route path="shop" element={<Shop />} />
                     <Route path="login" element={<Login />} />
+                    <Route path="/forgot-password" element={<ForgotPassword />} />
+                    <Route path="/reset-password/:token/:id" element={<ResetPassword />} />
                     <Route path="signup" element={<Signup />} />
                     <Route path="designers" element={<Designer_home />} />
                     <Route path="about" element={<About />} />

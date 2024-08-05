@@ -55,6 +55,17 @@ model Mainuser {
   orders     Orders[]
   retailer   Retailer?
   wishlist   Wishlist[]
+  passwordResetTokens PasswordResetToken[]
+}
+
+model PasswordResetToken {
+  id        Int      @id @default(autoincrement())
+  token     String
+  userId    String
+  expiresAt DateTime
+  user      Mainuser @relation(fields: [userId], references: [email])
+
+  @@unique([token])
 }
 
 model Wishlist {

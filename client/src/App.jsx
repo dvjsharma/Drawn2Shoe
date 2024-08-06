@@ -9,6 +9,7 @@ import Login from "./pages/Login/login";
 import ResetPassword from "./components/Reset-Password";
 import ForgotPassword from "./components/Forgot-Password";
 import Signup from "./pages/Signup/signup";
+import VerifyEmail from "./pages/Verify-email";
 import Layout_retailer from "./components/layout-retailer";
 import Designer_home from "./pages/Designers";
 import About from "./pages/About";
@@ -38,6 +39,7 @@ function App() {
                     <Route path="/forgot-password" element={<ForgotPassword />} />
                     <Route path="/reset-password/:token/:id" element={<ResetPassword />} />
                     <Route path="signup" element={<Signup />} />
+                    <Route path="/verify-email" element={<VerifyEmail/>} />
                     <Route path="designers" element={<Designer_home />} />
                     <Route path="about" element={<About />} />
                     <Route path="product" element={<Product />} />

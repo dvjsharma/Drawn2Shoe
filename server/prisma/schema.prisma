@@ -41,6 +41,20 @@ model Designer {
   mainuser      Mainuser @relation(fields: [email], references: [email])
 }
 
+model TempUser {
+  id         Int      @id @default(autoincrement())
+  name       String
+  email      String  @unique
+  profilepic String?
+  passwd     String
+  street     String
+  city       String
+  state      String
+  pincode    Int
+  token      String
+  createdAt  DateTime @default(now())
+}
+
 model Mainuser {
   name       String
   email      String  @id

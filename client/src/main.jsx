@@ -10,11 +10,11 @@ import {persistStore} from 'redux-persist';
 const persistor = persistStore(store)
 ReactDOM.createRoot(document.getElementById("root")).render(
     <Provider store={store}>
-        <React.StrictMode>
+       
             <PersistGate persistor={persistor}>
                 <App />
                 <Toaster />
             </PersistGate>
-        </React.StrictMode>
+        
     </Provider>
 );

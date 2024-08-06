@@ -31,6 +31,10 @@ model Design {
   designId    Int    @id @default(autoincrement())
   description String
   image       String?
+  userId      String 
+  shoeModel   String
+  shoeSize    Int
+  mainuser    Mainuser @relation(fields: [userId], references: [email]) 
   product     Product[]
 }
 
@@ -55,6 +59,7 @@ model Mainuser {
   orders     Orders[]
   retailer   Retailer?
   wishlist   Wishlist[]
+  designs    Design[] 
   passwordResetTokens PasswordResetToken[]
 }
 

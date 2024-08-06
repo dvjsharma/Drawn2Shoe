@@ -120,13 +120,16 @@ const getcategories = async (req, res) => {
 };
 
 const createcustomproduct = async (req, res) => {
-    const { description, image } = req.body;
+    const { description, image, shoeModel, shoeSize, userId } = req.body;
 
     try {
         await prisma.design.create({
             data: {
                 description,
                 image,
+                shoeModel, 
+                shoeSize:parseInt(shoeSize),  
+                userId,    
             },
         });
 

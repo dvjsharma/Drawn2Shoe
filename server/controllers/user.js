@@ -1,6 +1,8 @@
 import bcrypt from "bcryptjs";
 import { sendCookie } from "../utils/features.js";
 import { PrismaClient } from "@prisma/client";
+import { sendVerifyEmail } from "../utils/verify-email.js";
+import { v4 as uuidv4 } from "uuid";
 
 const prisma = new PrismaClient();
 
@@ -18,22 +20,42 @@ const signup = async (req, res) => {
                 message: "User already exists."
             });
         }
-
-        const hpasswd = await bcrypt.hash(passwd, 10);
-        const newUser = await prisma.mainuser.create({
-            data: {
+        
+        const token = uuidv4();
+        const hashedToken = await bcrypt.hash(token, 10);
+        const hashedPassword = await bcrypt.hash(passwd, 10);
+        
+        
+        await prisma.tempUser.upsert({
+            where: { email },
+            update: {
                 name,
-                email,
-                profilepic: ppic,
-                passwd: hpasswd,
+                profilepic:ppic,
+                passwd: hashedPassword,
                 street,
                 city,
                 state,
-                pincode: parseInt(pincode), // making pincode as an integer because it's get a string from 'req'
+                pincode: parseInt(pincode), 
+                token: hashedToken,
+            },
+            create: {
+                name,
+                email,
+                profilepic:ppic,
+                passwd: hashedPassword,
+                street,
+                city,
+                state,
+                pincode: parseInt(pincode),
+                token: hashedToken,
             },
         });
 
-        sendCookie(newUser.email, res, "Registered Successfully", 201);
+
+        const verificationLink = `http://localhost:5173/verify-email?token=${token}&email=${email}`;
+        await sendVerifyEmail(email, verificationLink);
+        res.status(200).json({ message: 'Verification email sent' });
+
     } catch (err) {
         console.error(err);
         res.status(500).json({
